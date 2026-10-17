@@ -5787,7 +5787,7 @@
     "table": "UI",
     "id": "1774288058179586",
     "key": "PAUSE_MENU_UNPAUSE",
-    "de": "PAUSE BEENDEN"
+    "de": "FORTSETZEN"
   },
   {
     "table": "UI",
@@ -6675,7 +6675,7 @@
     "table": "UI",
     "id": "197852272433283092",
     "key": "CREDITS_SECTION_04_NAMESONLYTEXT",
-    "de": "Shroom and GLOOM © 2026 TEAM LAZERBEAM. Alle Rechte vorbehalten.\r\n/nEntwickelt von TEAM LAZERBEAM.\r\n/nVeröffentlicht von Devolver Digital Inc. SHROOM AND GLOOM™ ist eine Marke von TEAM LAZERBEAM.\r\n/nDevolver Digital, Devolver, das Devolver-Logo und das Devolver-„D“-Logo™ sind eingetragene Marken von Devolver Digital Inc."
+    "de": "Shroom and GLOOM © 2026 TEAM LAZERBEAM. Alle Rechte vorbehalten.\r\n/nEntwickelt von TEAM LAZERBEAM.\r\n/nVeröffentlicht von Devolver Digital Inc. SHROOM AND GLOOM™ ist eine Marke von TEAM LAZERBEAM.\r\n/nDevolver Digital, Devolver, das Devolver-Logo und das Devolver-„D“-Logo™ sind eingetragene Marken von Devolver Digital Inc. "
   },
   {
     "table": "UI",
@@ -12765,7 +12765,7 @@
     "table": "Card",
     "id": "139473130403913791",
     "key": "INTENT_EXHAUST_TARGET_CARD",
-    "de": "[LINKKEY=WORD_EXHAUST][MULTIPLICITY_CARD]"
+    "de": "[MULTIPLICITY_CARD] [LINKKEY=WORD_EXHAUST]"
   },
   {
     "table": "Card",
@@ -12801,7 +12801,7 @@
     "table": "Card",
     "id": "139473130403913797",
     "key": "INTENT_DISCHARGE_ALL_BATTERY",
-    "de": "[LINKKEY=WORD_DISCHARGE][MULTIPLICITY_CARD] für [PNUM]"
+    "de": "[MULTIPLICITY_CARD] [LINKKEY=WORD_DISCHARGE] für [PNUM]"
   },
   {
     "table": "Card",
@@ -12855,13 +12855,13 @@
     "table": "Card",
     "id": "139473130403913810",
     "key": "INTENT_CRIPPLE",
-    "de": "[LINKKEY=WORD_CRIPPLE][MULTIPLICITY_ENEMY]"
+    "de": "[MULTIPLICITY_ENEMY] [LINKKEY=WORD_CRIPPLE]"
   },
   {
     "table": "Card",
     "id": "139473130403913811",
     "key": "INTENT_BECOME_LODGED",
-    "de": "Wird [JOINER=WORD_IN][MULTIPLICITY_ENEMY][LINKKEY=WORD_LODGED]"
+    "de": "[LINKKEY=WORD_LODGED] im Ziel: [MULTIPLICITY_ENEMY]"
   },
   {
     "table": "Card",
@@ -12927,7 +12927,7 @@
     "table": "Card",
     "id": "139473130403913822",
     "key": "INTENT_GAIN_ENERGY",
-    "de": "[PNUM] Energie [JOINER=WORD_FOR][MULTIPLICITY_ENEMY][MULTIPLY_MOD_1][MULTIPLY_MOD_2] erhalten"
+    "de": "[PNUM] Energie [JOINER=WORD_FOR] [MULTIPLICITY_ENEMY][MULTIPLY_MOD_1][MULTIPLY_MOD_2] erhalten"
   },
   {
     "table": "Card",
@@ -12945,37 +12945,37 @@
     "table": "Card",
     "id": "139473130403913827",
     "key": "INTENT_INCREASE_CONFUSION",
-    "de": "[PNUM] [LINKKEY=STATUS_CONFUSED][JOINER=WORD_TO][MULTIPLICITY_ENEMY]"
+    "de": "[PNUM] [LINKKEY=STATUS_CONFUSED] [JOINER=WORD_TO] [MULTIPLICITY_ENEMY]"
   },
   {
     "table": "Card",
     "id": "139473130403913828",
     "key": "INTENT_MULTIPLY_DAMAGE",
-    "de": "Schaden[JOINER=WORD_ON][MULTIPLICITY_CARD] mit [PNUM] multiplizieren"
+    "de": "Schaden [JOINER=WORD_ON] [MULTIPLICITY_CARD] mit [PNUM] multiplizieren"
   },
   {
     "table": "Card",
     "id": "139473130403913829",
     "key": "INTENT_INCREASE_HEALING",
-    "de": "[PNUM] Heilung [JOINER=WORD_ON][MULTIPLICITY_CARD]"
+    "de": "[PNUM] Heilung [JOINER=WORD_ON] [MULTIPLICITY_CARD]"
   },
   {
     "table": "Card",
     "id": "139473130403913830",
     "key": "INTENT_INCREASE_RAGE",
-    "de": "[PNUM] [LINKKEY=PROPERTY_RAGE][JOINER=WORD_ON][MULTIPLICITY_CARD]"
+    "de": "[PNUM] [LINKKEY=PROPERTY_RAGE] [JOINER=WORD_ON] [MULTIPLICITY_CARD]"
   },
   {
     "table": "Card",
     "id": "139473130403913831",
     "key": "INTENT_INCREASE_DAMAGE",
-    "de": "[PNUM] Schaden[JOINER=WORD_ON][MULTIPLICITY_CARD][MULTIPLY_MOD_1][MULTIPLY_MOD_2]"
+    "de": "[PNUM] Schaden [JOINER=WORD_ON] [MULTIPLICITY_CARD][MULTIPLY_MOD_1][MULTIPLY_MOD_2]"
   },
   {
     "table": "Card",
     "id": "139473130403913832",
     "key": "INTENT_INCREASE_GLOOM_STORED",
-    "de": "[PNUM] Finsternis[JOINER=WORD_ON][MULTIPLICITY_CARD][MULTIPLY_MOD_1][MULTIPLY_MOD_2] speichern"
+    "de": "[PNUM] Finsternis [JOINER=WORD_ON] [MULTIPLICITY_CARD][MULTIPLY_MOD_1][MULTIPLY_MOD_2] speichern"
   },
   {
     "table": "Card",
@@ -13011,25 +13011,25 @@
     "table": "Card",
     "id": "139473130403913843",
     "key": "INTENT_INCREASE_BATTERY",
-    "de": "[LINKKEY=PROPERTY_BATTERY][JOINER=WORD_ON][MULTIPLICITY_CARD] um [PNUM] erhöhen"
+    "de": "[LINKKEY=PROPERTY_BATTERY] [JOINER=WORD_ON] [MULTIPLICITY_CARD] um [PNUM] erhöhen"
   },
   {
     "table": "Card",
     "id": "139473130403913844",
     "key": "INTENT_INCREASE_WARMTH",
-    "de": "[LINKKEY=PROPERTY_WARMTH][JOINER=WORD_ON][MULTIPLICITY_CARD] um [PNUM] erhöhen"
+    "de": "[LINKKEY=PROPERTY_WARMTH] [JOINER=WORD_ON] [MULTIPLICITY_CARD] um [PNUM] erhöhen"
   },
   {
     "table": "Card",
     "id": "139473130403913845",
     "key": "INTENT_STORE_GLOOM",
-    "de": "[PNUM] [LINKKEY=PROPERTY_STORED_GLOOM][JOINER=WORD_ON][MULTIPLICITY_CARD] speichern"
+    "de": "[PNUM] [LINKKEY=PROPERTY_STORED_GLOOM] [JOINER=WORD_ON] [MULTIPLICITY_CARD] speichern"
   },
   {
     "table": "Card",
     "id": "139473130403913846",
     "key": "INTENT_STORE_GUNK",
-    "de": "[PNUM] [LINKKEY=PROPERTY_GUNK][JOINER=WORD_OFF][MULTIPLICITY_CARD] speichern"
+    "de": "[PNUM] [LINKKEY=PROPERTY_GUNK] [JOINER=WORD_OFF] [MULTIPLICITY_CARD] speichern"
   },
   {
     "table": "Card",
@@ -13179,7 +13179,7 @@
     "table": "Card",
     "id": "139473130403913873",
     "key": "INTENT_REDUCE_COST",
-    "de": "Kosten[JOINER=WORD_ON][MULTIPLICITY_CARD] kurzzeitig um [PNUM] reduzieren"
+    "de": "Kosten [JOINER=WORD_ON] [MULTIPLICITY_CARD] kurzzeitig um [PNUM] reduzieren"
   },
   {
     "table": "Card",
@@ -15039,13 +15039,13 @@
     "table": "Card",
     "id": "176567991575384064",
     "key": "INTENT_INCREASE_APPLIED_DECAY",
-    "de": "+[PNUM] Verfall [JOINER=WORD_ON][MULTIPLICITY_CARD]"
+    "de": "+[PNUM] Verfall [JOINER=WORD_ON] [MULTIPLICITY_CARD]"
   },
   {
     "table": "Card",
     "id": "176567991617327104",
     "key": "INTENT_INCREASE_APPLIED_DECAY_MULTIPLY",
-    "de": "x[PNUM] Verfall [JOINER=WORD_ON][MULTIPLICITY_CARD]"
+    "de": "x[PNUM] Verfall [JOINER=WORD_ON] [MULTIPLICITY_CARD]"
   },
   {
     "table": "Card",
@@ -15081,13 +15081,13 @@
     "table": "Card",
     "id": "176612185866113024",
     "key": "INTENT_CREATE_LODGED_CARD",
-    "de": "[HEXCODE][CARD_NAME]</color> erschaffen, feststeckend[JOINER=WORD_IN][MULTIPLICITY_ENEMY]"
+    "de": "[HEXCODE][CARD_NAME]</color> erschaffen, feststeckend [JOINER=WORD_IN] [MULTIPLICITY_ENEMY]"
   },
   {
     "table": "Card",
     "id": "176612185924833280",
     "key": "INTENT_INCREASE_SPELL_WEAKNESS",
-    "de": "+[PNUM] [LINKKEY=STATUS_SPELL_WEAKNESS][JOINER=WORD_ON][MULTIPLICITY_CARD]"
+    "de": "+[PNUM] [LINKKEY=STATUS_SPELL_WEAKNESS] [JOINER=WORD_ON] [MULTIPLICITY_CARD]"
   },
   {
     "table": "Card",
@@ -15147,13 +15147,13 @@
     "table": "Card",
     "id": "180527104932057090",
     "key": "INTENT_APPLY_HOT_SAUCED",
-    "de": "[LINKKEY=STATUS_HOT_SAUCE][JOINER=WORD_ON][MULTIPLICITY_ENEMY] streichen"
+    "de": "[LINKKEY=STATUS_HOT_SAUCE] [JOINER=WORD_ON] [MULTIPLICITY_ENEMY] streichen"
   },
   {
     "table": "Card",
     "id": "180527104932057091",
     "key": "INTENT_APPLY_SEASONED",
-    "de": "[LINKKEY=STATUS_SEASONED][JOINER=WORD_ON][MULTIPLICITY_ENEMY] streuseln"
+    "de": "[LINKKEY=STATUS_SEASONED] [JOINER=WORD_ON] [MULTIPLICITY_ENEMY] streuseln"
   },
   {
     "table": "Card",
@@ -15315,7 +15315,7 @@
     "table": "Card",
     "id": "185139272933695488",
     "key": "INTENT_DRAW_CONSUME_GUNK_CARD_SINGLE",
-    "de": "[JOINER=WORD_ON][MULTIPLICITY_CARD] hinzufügen: [PNUM] Putzkarte ziehen"
+    "de": "[JOINER=WORD_ON] [MULTIPLICITY_CARD] hinzufügen: [PNUM] Putzkarte ziehen"
   },
   {
     "table": "Card",
@@ -15459,7 +15459,7 @@
     "table": "Card",
     "id": "190619029111816192",
     "key": "INTENT_REDUCE_COST_PERMANENTLY",
-    "de": "Kosten[JOINER=WORD_ON][MULTIPLICITY_CARD] permanent um [PNUM] reduzieren"
+    "de": "Kosten [JOINER=WORD_ON] [MULTIPLICITY_CARD] permanent um [PNUM] reduzieren"
   },
   {
     "table": "Card",
@@ -15663,13 +15663,13 @@
     "table": "Card",
     "id": "192369496621834240",
     "key": "INTENT_RESET_HEALING",
-    "de": "Heilung [JOINER=WORD_ON][MULTIPLICITY_CARD] zurücksetzen"
+    "de": "Heilung [JOINER=WORD_ON] [MULTIPLICITY_CARD] zurücksetzen"
   },
   {
     "table": "Card",
     "id": "192369496642805760",
     "key": "INTENT_RESET_DAMAGE",
-    "de": "Schaden [JOINER=WORD_ON][MULTIPLICITY_CARD][MULTIPLY_MOD_1][MULTIPLY_MOD_2] zurücksetzen"
+    "de": "Schaden [JOINER=WORD_ON] [MULTIPLICITY_CARD][MULTIPLY_MOD_1][MULTIPLY_MOD_2] zurücksetzen"
   },
   {
     "table": "Card",
@@ -15801,7 +15801,7 @@
     "table": "Card",
     "id": "193466587950342144",
     "key": "INTENT_DRAW_CONSUME_GUNK_CARD_MULTI",
-    "de": "[JOINER=WORD_ON][MULTIPLICITY_CARD] hinzufügen: [PNUM] Putzkarten ziehen"
+    "de": "[JOINER=WORD_ON] [MULTIPLICITY_CARD] hinzufügen: [PNUM] Putzkarten ziehen"
   },
   {
     "table": "Card",
@@ -15819,7 +15819,7 @@
     "table": "Card",
     "id": "193502607009898496",
     "key": "INTENT_DEAL_DAMAGE_NEG",
-    "de": "[PNUM][EXTRA_DAMAGE][JOINER=WORD_TO][MULTIPLICITY_ENEMY][MULTIPLY_MOD_1][MULTIPLY_MOD_2] heilen"
+    "de": "[PNUM][EXTRA_DAMAGE] [JOINER=WORD_TO] [MULTIPLICITY_ENEMY][MULTIPLY_MOD_1][MULTIPLY_MOD_2] heilen"
   },
   {
     "table": "Card",
@@ -16257,7 +16257,7 @@
     "table": "Card",
     "id": "198618279754850304",
     "key": "INTENT_CONSUME_ALL_GUNK",
-    "de": "Alle [LINKKEY=PROPERTY_GUNK][JOINER=WORD_OFF][MULTIPLICITY_CARD] putzen"
+    "de": "Alle [LINKKEY=PROPERTY_GUNK] [JOINER=WORD_OFF] [MULTIPLICITY_CARD] putzen"
   },
   {
     "table": "Card",
@@ -16581,7 +16581,7 @@
     "table": "Card",
     "id": "205247181731651584",
     "key": "INTENT_CREATE_LODGED_CARD_WITH_DECAY",
-    "de": "[HEXCODE][CARD_NAME]</color> mit [PNUM] [LINKKEY=STATUS_DECAY] erschaffen, feststeckend[JOINER=WORD_IN][MULTIPLICITY_ENEMY]"
+    "de": "[HEXCODE][CARD_NAME]</color> mit [PNUM] [LINKKEY=STATUS_DECAY] erschaffen, feststeckend [JOINER=WORD_IN] [MULTIPLICITY_ENEMY]"
   },
   {
     "table": "Card",
@@ -16695,7 +16695,7 @@
     "table": "Card",
     "id": "206220487065329664",
     "key": "INTENT_COLLECT_ALL_GUNK",
-    "de": "100 % der [LINKKEY=PROPERTY_GUNK][JOINER=WORD_ON][MULTIPLICITY_CARD] sammeln"
+    "de": "100 % der [LINKKEY=PROPERTY_GUNK] [JOINER=WORD_ON] [MULTIPLICITY_CARD] sammeln"
   },
   {
     "table": "Card",
@@ -16707,13 +16707,13 @@
     "table": "Card",
     "id": "206304718437638144",
     "key": null,
-    "de": "100 % der [LINKKEY=PROPERTY_GUNK][JOINER=WORD_ON][MULTIPLICITY_CARD] sammeln und [PNUM]-mal die gesammelte Menge heilen"
+    "de": "100 % der [LINKKEY=PROPERTY_GUNK] [JOINER=WORD_ON] [MULTIPLICITY_CARD] sammeln und [PNUM]-mal die gesammelte Menge heilen"
   },
   {
     "table": "Card",
     "id": "206313486026170368",
     "key": "INTENT_COLLECT_ALL_GUNK_AND_HEAL",
-    "de": "100 % der [LINKKEY=PROPERTY_GUNK][JOINER=WORD_ON][MULTIPLICITY_CARD] sammeln und [PNUM]-mal die gesammelte Menge heilen"
+    "de": "100 % der [LINKKEY=PROPERTY_GUNK] [JOINER=WORD_ON] [MULTIPLICITY_CARD] sammeln und [PNUM]-mal die gesammelte Menge heilen"
   },
   {
     "table": "Card",

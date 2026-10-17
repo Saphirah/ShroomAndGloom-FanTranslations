@@ -31,6 +31,7 @@ def package():
         for name, path in {
             "ShroomGerman.dll": ROOT / "src/ShroomGerman/bin/Release/net6.0/ShroomGerman.dll",
             "translations.de.json": ROOT / "data/translations.de.json",
+            "ui-literals.de.json": ROOT / "data/ui-literals.de.json",
             "compatibility.json": ROOT / "data/compatibility.json",
             "LIESMICH.txt": ROOT / "docs/LIESMICH.txt",
             "THIRD-PARTY.txt": ROOT / "docs/THIRD-PARTY.txt",

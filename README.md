@@ -27,7 +27,7 @@ gegebenenfalls zurück.
 
 - Alle **2.857** Einträge der englischen Tabellen redaktionell mit der vorhandenen
   deutschen Fassung verglichen: Kartennamen, Regeln, Gegner, Welt und Oberfläche.
-- **515** Ergänzungen/Korrekturen gegenüber der mitgelieferten deutschen Fassung.
+- **540** Ergänzungen/Korrekturen gegenüber der mitgelieferten deutschen Fassung.
 - Zusätzlich **12** ausschließlich deutsche Einträge/Formen geprüft und aufgenommen,
   darunter zuvor leere Dativformen. Insgesamt **2.869** Katalogeinträge.
 - Spieltokens vollständig geprüft; bewusst leere technische `_`-Marker erhalten.
@@ -105,3 +105,13 @@ automatisierte Spieltest-Suite vorgesehen.
 Quellen und Lizenzhinweise: `docs/THIRD-PARTY.txt`, `docs/licenses/`.
 Kein Git-Remote ist aktuell konfiguriert; lokale Commits können daher noch nicht
 gepusht werden.
+
+## Update 0.1.1
+
+- Fehlende direkte UI-Beschriftungen wie TAKE IT über die tatsächlichen TMP- und
+  LocalizedFallbackText-Anzeigepfade übersetzen.
+- Deutsche Pausenmenü-Buttons passend verkleinern; FORTSETZEN statt PAUSE BEENDEN.
+- Äußere Leerzeichen, Tabs und Zeilenumbrüche exakt wie im englischen Ausgangstext
+  erhalten; explizite Wortabstände bei zusammengesetzten Kartenfragmenten.
+- Änderungen kompiliert und Katalog statisch geprüft. Die Spielprüfung übernimmt
+  der Nutzer; die laufende Spielinstanz wird nicht verändert.

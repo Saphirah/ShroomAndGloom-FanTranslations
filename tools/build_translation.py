@@ -26,6 +26,24 @@ def visible_cleanup(text):
     return "".join(parts)
 
 
+def edges(text):
+    return re.match(r"^\s*", text)[0], re.search(r"\s*$", text)[0]
+
+
+def preserve_edges(source, translated):
+    if not source.strip():
+        return translated
+    leading, trailing = edges(source)
+    return leading + translated.strip() + trailing
+
+
+def separate_fragments(text):
+    # JOINER resolves to a word (e.g. "in"), not to a guaranteed separator.
+    text = re.sub(r"\s*(\[JOINER=[^\]]+\])\s*", r" \1 ", text)
+    # Actions followed directly by target fragments otherwise form LÄHMENGEGNER.
+    return re.sub(r"(?<=\])(?=\[MULTIPLICITY_)", " ", text)
+
+
 def build():
     source_path = ROOT / "artifacts/source/source.json"
     rows = json.loads(source_path.read_text(encoding="utf-8"))
@@ -54,7 +72,11 @@ def build():
             de = en.replace("<b>Testing</b>", "<b>Qualitätssicherung</b>").replace("<b>Localization</b>", "<b>Lokalisierung</b>")
         if i == 1164:
             de = "[HEXCODE]EXPLODIERT BEIM EIGENEN ZUG</color>"
-        de = visible_cleanup(de)
+        de = preserve_edges(en, separate_fragments(visible_cleanup(de)))
+        if en.strip() and edges(en) != edges(de):
+            issues.append({"row": i, "kind": "boundary_whitespace"})
+        if re.search(r"\[JOINER=[^\]]+\](?=\S)|\S(?=\[JOINER=)", de):
+            issues.append({"row": i, "kind": "joined_words", "de": de})
         if en.strip() and not de.strip():
             issues.append({"row": i, "kind": "empty", "en": en})
         # JOINER tokens are grammar helpers; German often spells their replacement out.
@@ -77,6 +99,7 @@ def build():
     dest = ROOT / "data/translations.de.json"
     dest.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     report = {"entries": len(result), "tables": dict(counts), "englishReferenceEntries": len(rows), "additionalGermanEntries": len(supplement), "editorialChanges": sum(a["original_de"] != b["de"] for a,b in zip(rows,result)),
+              "boundaryWhitespace": "exactly preserved from English reference", "fragmentSeparators": "explicit around JOINER and target fragments",
               "sourceSha256": hashlib.sha256(source_path.read_bytes()).hexdigest(), "issues": issues}
     (ROOT / "artifacts/translation-check.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(report, ensure_ascii=False, indent=2))
