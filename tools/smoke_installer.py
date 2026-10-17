@@ -13,8 +13,8 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def main(game):
-    exe = ROOT / "dist/ShroomAndGloom-Deutsch-Setup.exe"
+def main(game, installer=None):
+    exe = installer.resolve() if installer else ROOT / "dist/ShroomAndGloom-Deutsch-Setup.exe"
     temp = Path(tempfile.mkdtemp(prefix="installer-smoke-", dir=ROOT / "artifacts"))
     def run(*args, expected=0):
         report = temp / "report.json"
@@ -53,4 +53,6 @@ def main(game):
 
 if __name__ == "__main__":
     p=argparse.ArgumentParser();p.add_argument("--game",type=Path,default=Path(r"E:\SteamLibrary\steamapps\common\Shroom and Gloom"))
-    main(p.parse_args().game)
+    p.add_argument("--installer", type=Path)
+    args=p.parse_args()
+    main(args.game, args.installer)

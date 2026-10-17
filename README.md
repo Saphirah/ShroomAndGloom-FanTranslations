@@ -7,7 +7,8 @@ einen separaten Klick auf **Spiel starten** über Steam geöffnet werden.
 
 ## Installation
 
-`dist/ShroomAndGloom-Deutsch-Setup.exe` öffnen, erkannten Steam-Spielordner prüfen
+Den EXE-Installer aus dem [neuesten Release](https://github.com/Saphirah/ShroomAndGloomGermanTranslation/releases/latest)
+herunterladen und öffnen, erkannten Steam-Spielordner prüfen
 und **Installieren** wählen. Nach erfolgreicher Installation wird der Button zu
 **Spiel starten**. Erst ein weiterer Klick öffnet das Spiel über Steam; der Installer
 schließt sich, sobald der Spielprozess läuft. Falls Steam den Start nicht freigibt,
@@ -39,13 +40,14 @@ gegebenenfalls zurück.
 - Plugin gegen offline aus diesem Build erzeugte IL2CPP-Schnittstellen kompiliert.
 - Echter EXE-Installer: Pfaderkennung, Installation, Wiederholungsinstallation,
   Prüfsummen, Deinstallation und Schutz fremder Loader im isolierten Ordner geprüft.
-- **Kein Spielstart, kein Laufzeit- oder visueller Spieltest** auf ausdrücklichen
-  Nutzerwunsch. Die statische Suche nach weiteren Szenentexten ist wegen weitgehend
-  entfernter Unity-Typbäume nicht vollständig möglich. Text in Bildern und eventuell
-  hart codierte Laufzeittexte sind deshalb noch nicht umfassend ausgeschlossen.
+- Die Integration der fünf Tabellen wurde anhand eines echten Spielprotokolls
+  bestätigt. Rückmeldungen aus dem Spiel führten zu den UI- und Layoutkorrekturen
+  in 0.1.1/0.1.2. Eine vollständige Sichtprüfung dieser jüngsten Änderungen steht
+  noch aus. Wegen weitgehend entfernter Unity-Typbäume sind weitere hart codierte
+  Texte oder Text in Bildern nicht umfassend ausgeschlossen.
 
-Die Version ist ein installiertes MVP zur anschließenden Spielprüfung. Sie ist
-keine als vollständig visuell abgenommen ausgewiesene Veröffentlichung.
+Die Version ist ein MVP für die angegebene Spielversion. Die vollständige
+visuelle Abnahme steht noch aus.
 
 ## Aufbau
 
@@ -100,15 +102,16 @@ liegen in `artifacts/`.
 
 ## Nächste Spielprüfung
 
-Sobald ein regulärer Spielstart wieder möglich ist: Modlog auf **alle fünf
+Für die nächste Spielprüfung: Modlog auf **alle fünf
 Tabellen** und **Deutsch aktiv** prüfen; Hauptmenü, je eine Kampf-/Erkundungskarte,
 Tooltip, Sprachwechsel sowie Neustart kurz ansehen. Anschließend auffällige
 Satzkombinationen und Textüberläufe gezielt korrigieren. Keine vollständige
 automatisierte Spieltest-Suite vorgesehen.
 
 Quellen und Lizenzhinweise: `docs/THIRD-PARTY.txt`, `docs/licenses/`.
-Kein Git-Remote ist aktuell konfiguriert; lokale Commits können daher noch nicht
-gepusht werden.
+Der eigene Programmcode steht unter der [MIT-Lizenz](LICENSE). Spieltexte,
+vorhandene Übersetzungen und Drittkomponenten bleiben unter den Rechten und
+Lizenzbedingungen ihrer jeweiligen Rechteinhaber; siehe die Hinweise oben.
 
 ## Update 0.1.1
 

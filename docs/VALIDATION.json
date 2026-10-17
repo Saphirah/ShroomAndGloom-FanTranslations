@@ -23,5 +23,10 @@
   "installedPayloadVerification": "0.1.2 prepared, not installed over the running game",
   "installerSteamLaunch": "Release build passed; install-success action changes to Spiel starten; Steam URI dispatch and process-confirmed auto-close implemented. Game launch not exercised; user performs acceptance.",
   "installer": "dist/ShroomAndGloom-Deutsch-Setup-0.1.2.exe",
-  "textAutoSize": "Canvas and 3D TMP paths compiled against the installed game interfaces. Card class _typeText and pause actions: auto-size enabled, no wrapping, relative minimum 25%, fixed container. User performs game acceptance."
+  "textAutoSize": "Canvas and 3D TMP paths compiled against the installed game interfaces. Card class _typeText and pause actions: auto-size enabled, no wrapping, relative minimum 25%, fixed container. User performs game acceptance.",
+  "publicRelease": "v0.1.2",
+  "releaseInstallerSha256": "8099f0689c0b91eb0d853346398bcc9ac277fdf0604959e0fb3feba34766360f",
+  "releasePackageFiles": 246,
+  "releasePackageHashes": "passed for all 246 files",
+  "releaseInstallerSmoke": "Discovery passed. Fresh install scenario blocked by running Shroom and Gloom process; game left untouched. Prior installer install/reinstall/uninstall/foreign-loader smoke checks passed."
 }

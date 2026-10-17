@@ -38,6 +38,7 @@ def package():
         }.items(): add(base + name, path.read_bytes())
         for path in sorted((ROOT / "docs/licenses").glob("*")):
             add(base + "Lizenzen/" + path.name, path.read_bytes())
+        add(base + "Lizenzen/ShroomGerman-LICENSE.txt", (ROOT / "LICENSE").read_bytes())
     (artifacts / "package-info.json").write_text(json.dumps(info, indent=2) + "\n", encoding="utf-8")
     print(f"Payload: {len(info['Files'])} files, {(artifacts / 'payload.zip').stat().st_size:,} bytes")
 
