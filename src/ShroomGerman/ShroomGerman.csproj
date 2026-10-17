@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework><AssemblyName>ShroomGerman</AssemblyName>
-    <Version>0.1.4</Version><LangVersion>latest</LangVersion><Nullable>enable</Nullable>
+    <Version>0.2.0</Version><LangVersion>latest</LangVersion><Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings><CheckEolTargetFramework>false</CheckEolTargetFramework>
     <LoaderDir>$(MSBuildProjectDirectory)/../../.tools/loader</LoaderDir>
   </PropertyGroup>
@@ -9,4 +9,5 @@
     <Reference Include="$(LoaderDir)/BepInEx/core/*.dll" Exclude="$(LoaderDir)/BepInEx/core/dobby.dll"><Private>false</Private></Reference>
     <Reference Include="$(LoaderDir)/BepInEx/interop/*.dll"><Private>false</Private></Reference>
   </ItemGroup>
+  <ItemGroup><Compile Include="../Shared/*.cs" Link="Shared/%(Filename)%(Extension)" /></ItemGroup>
 </Project>

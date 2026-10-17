@@ -1,23 +1,18 @@
-# Shroom and Gloom – Deutsch
+# Shroom and Gloom Fan Translations
 
-Inoffizielle deutsche Übersetzungsmod für **Windows x64 · Steam-Build 25442225**.
+Unofficial translation mod for **Windows x64 · Steam build 25442225**.
+Supports [30 language variants](data/languages.json), including community-edited
+German and AI-assisted additional translations. Community corrections are welcome.
 
 ## Installation
 
-1. [Neuesten Installer herunterladen](https://github.com/Saphirah/ShroomAndGloom-German/releases/latest).
-2. Spiel schließen, Installer öffnen und **Installieren** wählen.
-3. Über **Spiel starten** oder Steam spielen. Deutsch ist automatisch aktiv.
+1. Download the installer from the [latest release](https://github.com/Saphirah/ShroomAndGloom-FanTranslations/releases/latest).
+2. Close the game and install the mod.
+3. Select your language in the game settings.
 
-Beim ersten Spielstart benötigt der Modloader eine Internetverbindung zur Einrichtung.
-Deinstallation über denselben Installer.
+All language packs are included initially. The mod checks for updates at startup
+and downloads only changed packs. Offline uses the installed translations.
+Code updates and uninstallation use the same installer.
 
-## Entwicklung
-
-Voraussetzungen: Windows, .NET SDK 8+, Python 3 und die unterstützte Spielversion.
-
-```powershell
-./tools/build.ps1 -GameDir 'E:\SteamLibrary\steamapps\common\Shroom and Gloom'
-```
-
-Eigener Code: [MIT](LICENSE). Rechte an Spieltexten und Drittkomponenten:
-[Lizenzhinweise](docs/THIRD-PARTY.txt).
+[Build and release instructions](docs/RELEASING.md) · [MIT license](LICENSE) ·
+[Third-party notices](docs/THIRD-PARTY.txt)

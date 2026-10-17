@@ -33,15 +33,25 @@ internal static class TextPresentation
 
     internal static void Load(string folder)
     {
-        var data = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(Path.Combine(folder, "ui-literals.de.json")))!;
+        var data = new Dictionary<string, string>(Plugin.CurrentPack.Literals, StringComparer.OrdinalIgnoreCase);
+        // Existing direct labels may already contain their old German value.
+        foreach (var previous in literals)
+            if (data.TryGetValue(previous.Key, out var updated) && updated != previous.Value)
+                data.TryAdd(previous.Value, updated);
         literals = new(data, StringComparer.OrdinalIgnoreCase);
+        menuLabels.Clear();
+        foreach (var row in Plugin.Tables.GetValueOrDefault("UI", new()))
+            if (row.Key != null && (row.Key.StartsWith("PAUSE_MENU_") && row.Key != "PAUSE_MENU_TITLE"
+                || row.Key is "TITLE_SCREEN_CONTINUE" or "TITLE_SCREEN_NEW_RUN")) menuLabels.Add(row.Text.Trim());
+        foreach (var key in new[] { "CONTINUE", "SETTINGS", "CREDITS", "MAIN MENU", "QUIT", "PLAY", "START", "RESTART", "BACK" })
+            if (data.TryGetValue(key, out var value)) menuLabels.Add(value.Trim());
         cardClasses = new(Plugin.Tables["Card"].Where(row => row.Key?.StartsWith("CLASS_", StringComparison.Ordinal) == true)
-            .Select(row => row.De.Trim()), StringComparer.OrdinalIgnoreCase);
+            .Select(row => row.Text.Trim()), StringComparer.OrdinalIgnoreCase);
     }
 
     internal static string Translate(string input)
     {
-        if (string.IsNullOrEmpty(input) || !Plugin.IsGerman(LocalizationSettings.SelectedLocale)) return input;
+        if (string.IsNullOrEmpty(input) || !Plugin.IsSupported(LocalizationSettings.SelectedLocale)) return input;
         string Replace(string text)
         {
             var core = text.Trim();
@@ -60,7 +70,7 @@ internal static class TextPresentation
         try
         {
             if (text == null) return;
-            var german = Plugin.IsGerman(LocalizationSettings.SelectedLocale);
+            var german = Plugin.IsSupported(LocalizationSettings.SelectedLocale);
             var value = text.text;
             if (german)
             {

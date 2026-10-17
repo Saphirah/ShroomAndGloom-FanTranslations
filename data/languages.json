@@ -1,0 +1,187 @@
+{
+  "survey": "September 2026",
+  "source": "https://store.steampowered.com/hwsurvey/?l=english",
+  "selection": "30 Steam language variants including English; Malay wins the 0.00% tie with Arabic. Survey usage is not per-game sales.",
+  "languages": [
+    {
+      "code": "en",
+      "name": "English",
+      "nativeName": "English",
+      "steamShare": 34.2
+    },
+    {
+      "code": "zh-Hans",
+      "name": "Simplified Chinese",
+      "nativeName": "简体中文",
+      "steamShare": 31.39
+    },
+    {
+      "code": "ru",
+      "name": "Russian",
+      "nativeName": "Русский",
+      "steamShare": 9.05
+    },
+    {
+      "code": "es",
+      "name": "Spanish - Spain",
+      "nativeName": "Español",
+      "steamShare": 4.08
+    },
+    {
+      "code": "pt-BR",
+      "name": "Portuguese-Brazil",
+      "nativeName": "Português (Brasil)",
+      "steamShare": 3.7
+    },
+    {
+      "code": "de",
+      "name": "German",
+      "nativeName": "Deutsch",
+      "steamShare": 2.48
+    },
+    {
+      "code": "ja",
+      "name": "Japanese",
+      "nativeName": "日本語",
+      "steamShare": 2.41
+    },
+    {
+      "code": "fr",
+      "name": "French",
+      "nativeName": "Français",
+      "steamShare": 2.08
+    },
+    {
+      "code": "pl",
+      "name": "Polish",
+      "nativeName": "Polski",
+      "steamShare": 1.49
+    },
+    {
+      "code": "ko",
+      "name": "Korean",
+      "nativeName": "한국어",
+      "steamShare": 1.37
+    },
+    {
+      "code": "zh-Hant",
+      "name": "Traditional Chinese",
+      "nativeName": "繁體中文",
+      "steamShare": 1.27
+    },
+    {
+      "code": "tr",
+      "name": "Turkish",
+      "nativeName": "Türkçe",
+      "steamShare": 1.09
+    },
+    {
+      "code": "th",
+      "name": "Thai",
+      "nativeName": "ไทย",
+      "steamShare": 0.82
+    },
+    {
+      "code": "es-419",
+      "name": "Spanish - Latin America",
+      "nativeName": "Español (Latinoamérica)",
+      "steamShare": 0.75
+    },
+    {
+      "code": "uk",
+      "name": "Ukrainian",
+      "nativeName": "Українська",
+      "steamShare": 0.66
+    },
+    {
+      "code": "it",
+      "name": "Italian",
+      "nativeName": "Italiano",
+      "steamShare": 0.56
+    },
+    {
+      "code": "cs",
+      "name": "Czech",
+      "nativeName": "Čeština",
+      "steamShare": 0.5
+    },
+    {
+      "code": "hu",
+      "name": "Hungarian",
+      "nativeName": "Magyar",
+      "steamShare": 0.32
+    },
+    {
+      "code": "pt",
+      "name": "Portuguese - Portugal",
+      "nativeName": "Português (Portugal)",
+      "steamShare": 0.31
+    },
+    {
+      "code": "vi",
+      "name": "Vietnamese",
+      "nativeName": "Tiếng Việt",
+      "steamShare": 0.25
+    },
+    {
+      "code": "sv",
+      "name": "Swedish",
+      "nativeName": "Svenska",
+      "steamShare": 0.23
+    },
+    {
+      "code": "nl",
+      "name": "Dutch",
+      "nativeName": "Nederlands",
+      "steamShare": 0.23
+    },
+    {
+      "code": "da",
+      "name": "Danish",
+      "nativeName": "Dansk",
+      "steamShare": 0.19
+    },
+    {
+      "code": "id",
+      "name": "Indonesian",
+      "nativeName": "Bahasa Indonesia",
+      "steamShare": 0.15
+    },
+    {
+      "code": "fi",
+      "name": "Finnish",
+      "nativeName": "Suomi",
+      "steamShare": 0.13
+    },
+    {
+      "code": "nb",
+      "name": "Norwegian",
+      "nativeName": "Norsk bokmål",
+      "steamShare": 0.11
+    },
+    {
+      "code": "ro",
+      "name": "Romanian",
+      "nativeName": "Română",
+      "steamShare": 0.1
+    },
+    {
+      "code": "el",
+      "name": "Greek",
+      "nativeName": "Ελληνικά",
+      "steamShare": 0.05
+    },
+    {
+      "code": "bg",
+      "name": "Bulgarian",
+      "nativeName": "Български",
+      "steamShare": 0.04
+    },
+    {
+      "code": "ms",
+      "name": "Malay",
+      "nativeName": "Bahasa Melayu",
+      "steamShare": 0.0
+    }
+  ]
+}

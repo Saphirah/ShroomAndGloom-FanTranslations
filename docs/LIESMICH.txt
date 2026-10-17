@@ -1,38 +1,24 @@
-SHROOM AND GLOOM – DEUTSCHE ÜBERSETZUNGSMOD 0.1.4
+SHROOM AND GLOOM FAN TRANSLATIONS
 
-Installation: ShroomAndGloom-Deutsch-Setup.exe öffnen. Der Steam-Spielordner wird
-automatisch gesucht. Bei Bedarf über „Ordner wählen“ den Ordner mit
-„Shroom and Gloom.exe“ auswählen, dann „Installieren“ drücken.
+Windows x64 · Steam build 25442225.
 
-Bitte nicht bei laufendem Spiel installieren. Nach erfolgreicher Installation wird
-aus „Installieren“ der Button „Spiel starten“. Ein weiterer Klick startet das Spiel
-über Steam. Sobald der Spielprozess läuft, schließt sich der Installer.
-Beim nächsten selbst gestarteten Spiel ist Deutsch aktiv. Die erstmalige Vorbereitung
-des Modloaders kann etwa eine Minute dauern. Dabei lädt BepInEx einmalig passende
-Unity-Basisbibliotheken herunter; für diesen ersten Start wird Internet benötigt.
+Close the game, open the installer, select the detected Steam folder and install.
+Select a language in the game settings. All available language packs are installed initially.
 
-Unterstützt: Windows x64, Steam-Build 25442225, Unity 2022.3.62f3.
-Enthält 2.857 redaktionell durchgesehene Einträge aus dem englischen Bestand
-und 12 zusätzliche deutsche Einträge bzw. grammatische Formen in fünf Sprachtabellen.
-Originaldateien des Spiels und Spielstände werden nicht überschrieben.
-Nach einem Spielupdate auf einen anderen Code-Build wird diese Mod vorsichtshalber
-nicht aktiviert. Bitte dann eine passende Modversion verwenden.
+The mod checks for published updates at startup and downloads only changed language
+packs. Offline keeps the installed translations. Code updates use the installer.
+The first BepInEx launch also requires Internet to prepare Unity interfaces.
 
-Sprache: Deutsch wird beim Start automatisch gewählt. Ein Sprachwechsel ist über
-die vorhandenen Spieleinstellungen möglich. Wer die Sprachauswahl auch beim Neustart
-dem Spiel überlassen möchte, setzt in BepInEx/config/de.shroomandgloom.german.cfg
-DeutschBeimStart = false.
+Use the same installer to uninstall. Original game files and saves are preserved.
+Other mods and locally modified files are protected.
 
-Deinstallation: denselben Installer öffnen und „Deinstallieren“ wählen.
-Es werden ausschließlich unveränderte Dateien entfernt, die diese Mod installiert hat.
-Ein von anderen erkannten DLL-Plugins benötigter Loader bleibt erhalten.
-Erzeugte Modloader-Caches, Logdateien und Konfigurationen können bestehen bleiben.
+Configuration: BepInEx/config/de.shroomandgloom.german.cfg
+[Language] StartupLocale = auto respects the saved in-game language selection.
+[Aktualisierung] SprachpaketBeimStart = false disables automatic language updates.
 
-Prüfstand: Tabellen redaktionell geprüft; Textvollständigkeit und Spieltokens geprüft;
-Plugin und Installer kompiliert. Noch kein Laufzeit- oder Sichttest im Spiel, da
-das Spiel auf ausdrücklichen Nutzerwunsch während der Entwicklung nicht gestartet wird.
-Die Mod ist ein MVP; Layout und zusammengesetzte Regeltexte brauchen noch Spieltests.
+Additional translations are AI-assisted with a separate editorial pass and static
+checks. Community corrections are welcome. Existing original game fonts are retained;
+Noto fallbacks support additional scripts and are private to the game process.
 
-Inoffizielle Fan-Mod. Shroom and Gloom und die mitgelieferten Ausgangstexte gehören
-Team Lazerbeam / Devolver Digital. Keine Zugehörigkeit zu den Entwicklern.
-Lizenzen und Quellen der beigefügten Werkzeuge: THIRD-PARTY.txt und Lizenzen/.
+Unofficial fan mod. Game and original text belong to Team Lazerbeam / Devolver Digital.
+Third-party and font licenses are included under Lizenzen/. See THIRD-PARTY.txt.

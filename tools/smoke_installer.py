@@ -14,12 +14,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main(game, installer=None):
-    exe = installer.resolve() if installer else ROOT / "dist/ShroomAndGloom-Deutsch-Setup.exe"
+    exe = installer.resolve() if installer else ROOT / "dist/ShroomAndGloom-FanTranslations-Setup.exe"
     temp = Path(tempfile.mkdtemp(prefix="installer-smoke-", dir=ROOT / "artifacts"))
     def run(*args, expected=0):
         report = temp / "report.json"
         if report.exists(): report.unlink()
-        proc = subprocess.run([str(exe), *map(str,args), "--report", str(report)], timeout=90)
+        proc = subprocess.run([str(exe), *map(str,args), "--report", str(report)], timeout=180)
         result = json.loads(report.read_text(encoding="utf-8-sig"))
         assert proc.returncode == expected, result
         return result

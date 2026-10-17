@@ -1,1 +1,2 @@
 UnityPy==1.25.4
+fonttools==4.60.0

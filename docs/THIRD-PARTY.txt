@@ -1,6 +1,6 @@
-Shroom and Gloom – deutsche Fanübersetzungsmod
+Shroom and Gloom Fan Translations
 
-Spiel, Originaltexte und vorhandene deutsche Übersetzungen:
+Spiel, Originaltexte und vorhandene Übersetzungen:
 Copyright Team Lazerbeam / Devolver Digital und jeweilige Rechteinhaber.
 Der Katalog enthält redigierte Texte auf Grundlage der rechtmäßig installierten
 Spielversion. Es wird keine Lizenz an fremden Spielinhalten beansprucht.
@@ -38,3 +38,11 @@ https://github.com/chu123122/Shroom-and-Gloom-
 
 Installer-Runtime: Microsoft .NET 8 / Windows Desktop Runtime (MIT und enthaltene
 Drittlizenzen). https://github.com/dotnet/runtime
+
+Noto Sans, Noto Sans Thai and Noto Sans CJK SC: SIL Open Font License 1.1.
+Copyright respective Noto project authors (see bundled license texts).
+https://github.com/notofonts/noto-fonts
+https://github.com/notofonts/noto-cjk
+Exact source URLs and SHA256 hashes: assets/fonts/sources.json in the source repository.
+Unmodified font files are bundled; licenses are included as Noto-OFL.txt and
+NotoCJK-OFL.txt. Fonts are registered privately for the running game process.

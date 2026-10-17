@@ -31,5 +31,5 @@ internal static class Program
         Application.Run(new SetupForm());
         return 0;
     }
-    private static object Install(string root) { ModInstaller.Install(root); return new { Installed = true, GamePath = root }; }
+    private static object Install(string root) { var version = ModInstaller.InstallAsync(root).GetAwaiter().GetResult(); return new { Installed = true, GamePath = root, Version = version }; }
 }

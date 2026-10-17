@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType><TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../src/Installer/ModInstaller.cs" Link="ModInstaller.cs" />
+    <Compile Include="../../src/Installer/GameLocator.cs" Link="GameLocator.cs" />
+    <Compile Include="../../src/ShroomGerman/LanguageUpdates.cs" Link="LanguageUpdates.cs" />
+    <Compile Include="../../src/Shared/*.cs" Link="Shared/%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>

@@ -1,33 +1,229 @@
 {
-  "entries": 2869,
-  "tables": {
-    "Card Names": 961,
-    "UI": 188,
-    "Enemy": 204,
-    "World": 619,
-    "Card": 897
-  },
+  "version": "0.2.0",
+  "supportedSteamBuild": "25442225",
+  "unity": "2022.3.62f3",
+  "languageVariants": 30,
   "englishReferenceEntries": 2857,
   "additionalGermanEntries": 12,
-  "editorialChanges": 551,
-  "boundaryWhitespace": "exactly preserved from English reference",
-  "fragmentSeparators": "explicit around JOINER and target fragments",
+  "perLanguage": {
+    "en": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "original",
+      "bytes": 456137
+    },
+    "zh-Hans": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 458669
+    },
+    "ru": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 511091
+    },
+    "es": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 466098
+    },
+    "pt-BR": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 464351
+    },
+    "de": {
+      "entries": 2869,
+      "literals": 32,
+      "quality": "community-reviewed",
+      "bytes": 472029
+    },
+    "ja": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 478546
+    },
+    "fr": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 470763
+    },
+    "pl": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 465830
+    },
+    "ko": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 473351
+    },
+    "zh-Hant": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 458171
+    },
+    "tr": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 466089
+    },
+    "th": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 554100
+    },
+    "es-419": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 466576
+    },
+    "uk": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 510026
+    },
+    "it": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 466454
+    },
+    "cs": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 465166
+    },
+    "hu": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 469508
+    },
+    "pt": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 465168
+    },
+    "vi": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 483418
+    },
+    "sv": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 461052
+    },
+    "nl": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 464455
+    },
+    "da": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 460286
+    },
+    "id": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 465393
+    },
+    "fi": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 464911
+    },
+    "nb": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 459767
+    },
+    "ro": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 468643
+    },
+    "el": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 514758
+    },
+    "bg": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 512926
+    },
+    "ms": {
+      "entries": 2857,
+      "literals": 32,
+      "quality": "ai-reviewed",
+      "bytes": 464781
+    }
+  },
   "sourceSha256": "2826627f1a9d4423e1abf990c4d94e3a128de3c81a2f9ef2d121fcc74e7b700b",
   "issues": [],
-  "version": "0.1.4",
-  "pluginBuild": "passed",
-  "installerBuild": "passed",
-  "packageCatalogVerification": "passed",
-  "uiFallbackLabels": 32,
-  "gameRuntimeTest": "Translation changes reviewed against English templates; in-game acceptance pending. No game launch or interaction.",
-  "installedPayloadVerification": "0.1.4 built; live game installation left unchanged",
-  "installerSteamLaunch": "Release build passed; install-success action changes to Spiel starten; Steam URI dispatch and process-confirmed auto-close implemented. Game launch not exercised; user performs acceptance.",
-  "installer": "dist/ShroomAndGloom-Deutsch-Setup-0.1.4.exe",
-  "textAutoSize": "Compiled: exact menu labels independent of button hierarchy; button/mask width constrains text margins; DeckDisplay._titleText auto-size without wrapping; active TMP discovery every 250 ms; null labels ignored. Game visual acceptance pending.",
-  "publicRelease": "v0.1.4",
-  "releaseInstallerSha256": "db8bb6f95fa80fafe4885672cd3a161ca496414713f0f641884681824106f1fc",
-  "releasePackageFiles": 246,
-  "releasePackageHashes": "passed for all 246 files",
-  "releaseInstallerSmoke": "Not repeated for translation-only changes and version strings. Prior backend smoke checks remain historical.",
-  "translationWording": "Nine card creation templates use erschaffen; damage template restores conditional JOINER=WORD_TO and translates WORD_TO as bei. Reviewed remaining WORD_TO uses (confusion and healing). Tokens and exact boundary whitespace pass."
+  "review": {
+    "english": "Original game reference",
+    "german": "Existing community edits preserved; source fragments and wording checked",
+    "additionalLanguages": "AI-assisted translation, separate full editorial pass and focused high-reasoning terminology/quantity review",
+    "models": [
+      "gemini-3.1-flash-lite",
+      "gemini-3.5-flash-lite"
+    ],
+    "nativeSpeakerCertification": false
+  },
+  "staticChecks": [
+    "Complete source IDs and literal labels",
+    "Exact leading/trailing whitespace",
+    "Game placeholders and TMP markup",
+    "Literal gameplay quantities",
+    "Contributor names",
+    "Bundled font character coverage"
+  ],
+  "build": {
+    "plugin": "passed (.NET 6)",
+    "installer": "passed (self-contained Windows x64 .NET 8)",
+    "offlineInterop": "passed"
+  },
+  "focusedChecks": {
+    "passed": 34,
+    "scope": "Isolated install/uninstall, ownership, rollback, full/text/current selection, per-language downloads, offline and invalid data protection, all 31 built archive contents and hashes"
+  },
+  "package": {
+    "files": 279,
+    "languageArchives": 30,
+    "languageArchiveBytes": 3357711
+  },
+  "updates": "Installer includes every language in the initial full package. Startup checks published metadata and downloads only language files with changed hashes; executable updates require installer.",
+  "runtimeAcceptance": "Game startup, language switching and visual layout acceptance are separate from the automated/offline checks in this report.",
+  "targetRelease": "v0.2.0",
+  "installer": "ShroomAndGloom-FanTranslations-Setup-0.2.0.exe",
+  "releaseHashes": "Published SHA256SUMS.txt"
 }

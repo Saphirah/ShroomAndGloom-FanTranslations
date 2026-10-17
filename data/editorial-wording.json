@@ -9,5 +9,15 @@
   "2622": "[HEXCODE][CARD_NAME]</color> mit demselben Schaden erschaffen",
   "2712": "[HEXCODE][CARD_NAME]</color> mit demselben Verfall wie das Ziel erschaffen",
   "2637": "[PNUM][EXTRA_DAMAGE] [LINKKEY=WORD_DAMAGE][JOINER=WORD_TO][MULTIPLICITY_ENEMY][MULTIPLY_MOD_1][MULTIPLY_MOD_2] verursachen",
-  "2627": "bei"
+  "2627": "bei",
+  "1428": "ERHÖHE GEWINN MIT ABSORBIERTER FINSTERNIS",
+  "2376": "Absorbierte dunkle Energie, die dich stärker macht.",
+  "2378": "Wenn du Finsternis absorbierst, wird sie vervielfacht.\\n\nAber die Welt wird im selben Maße stärker.",
+  "1387": "EINE [LINKKEY=CARD_NAMES_REPRESSED_RAGE]-KARTE ERSCHAFFEN",
+  "1885": "[LINKKEY=TRIGGER_IF_FATAL] [LINKKEY=CARD_NAMES_LOOSE_GREASE] ERSCHAFFEN",
+  "1887": "[LINKKEY=CARD_NAMES_FESTERING_MOULD] ERSCHAFFEN",
+  "1897": "„ABSPÜLEN ERSCHAFFEN“ AUTOMATISCH AUSLÖSEN",
+  "1920": "[LINKKEY=TRIGGER_IF_FATAL] SCHMIERIG LEICHT ERSCHAFFEN",
+  "2710": "Wenn du einen Gegner mit einer verschmierten Karte tötest,\nerschaffst du <link=\"mC\">Warme Butter</link>.",
+  "2755": "Wenn du einen Gegner mit einer verschmierten Karte tötest,\nerschaffst du <link=\"mC\">Soße</link>."
 }

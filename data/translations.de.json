@@ -8325,7 +8325,7 @@
     "table": "World",
     "id": "162282125385766",
     "key": "TRAINING_TYPE_DETAIL_PD_ADD_REPRESSED_RAGE",
-    "de": "EINE [LINKKEY=CARD_NAMES_REPRESSED_RAGE]-KARTE MACHEN"
+    "de": "EINE [LINKKEY=CARD_NAMES_REPRESSED_RAGE]-KARTE ERSCHAFFEN"
   },
   {
     "table": "World",
@@ -8571,7 +8571,7 @@
     "table": "World",
     "id": "162282129580059",
     "key": "TRAINING_TYPE_DETAIL_FURTHER_GS_ADD_STORED_GLOOM_DAMAGE",
-    "de": "ERHÖHE GEWINN MIT GELAGERTER FINSTERNIS"
+    "de": "ERHÖHE GEWINN MIT ABSORBIERTER FINSTERNIS"
   },
   {
     "table": "World",
@@ -11313,7 +11313,7 @@
     "table": "World",
     "id": "58204310100500481",
     "key": "TRAINING_TYPE_DETAIL_WB_MAKE_LOOSE_GREASE",
-    "de": "[LINKKEY=TRIGGER_IF_FATAL] [LINKKEY=CARD_NAMES_LOOSE_GREASE] MACHEN"
+    "de": "[LINKKEY=TRIGGER_IF_FATAL] [LINKKEY=CARD_NAMES_LOOSE_GREASE] ERSCHAFFEN"
   },
   {
     "table": "World",
@@ -11325,7 +11325,7 @@
     "table": "World",
     "id": "58204310100500483",
     "key": "TRAINING_TYPE_DETAIL_BL_ADD_DECAY_GROWTH_TO_EXHAUSTING",
-    "de": "[LINKKEY=CARD_NAMES_FESTERING_MOULD] MACHEN"
+    "de": "[LINKKEY=CARD_NAMES_FESTERING_MOULD] ERSCHAFFEN"
   },
   {
     "table": "World",
@@ -11385,7 +11385,7 @@
     "table": "World",
     "id": "58204310100500493",
     "key": "TRAINING_TYPE_DETAIL_CL_AUTO_TRIGGER_MAKE_RINSE",
-    "de": "ABSPÜLEN MACHEN AUTOMATISCH AUSLÖSEN"
+    "de": "„ABSPÜLEN ERSCHAFFEN“ AUTOMATISCH AUSLÖSEN"
   },
   {
     "table": "World",
@@ -11523,7 +11523,7 @@
     "table": "World",
     "id": "58248176620933138",
     "key": "TRAINING_TYPE_DETAIL_WB_IF_FATAL_MAKE_GREASY_PEASY",
-    "de": "[LINKKEY=TRIGGER_IF_FATAL] SCHMIERIG LEICHT MACHEN"
+    "de": "[LINKKEY=TRIGGER_IF_FATAL] SCHMIERIG LEICHT ERSCHAFFEN"
   },
   {
     "table": "World",
@@ -12975,7 +12975,7 @@
     "table": "Card",
     "id": "139473130403913832",
     "key": "INTENT_INCREASE_GLOOM_STORED",
-    "de": "[PNUM] Finsternis [JOINER=WORD_ON] [MULTIPLICITY_CARD][MULTIPLY_MOD_1][MULTIPLY_MOD_2] speichern"
+    "de": "[PNUM] Finsternis [JOINER=WORD_ON] [MULTIPLICITY_CARD][MULTIPLY_MOD_1][MULTIPLY_MOD_2] absorbieren"
   },
   {
     "table": "Card",
@@ -13023,7 +13023,7 @@
     "table": "Card",
     "id": "139473130403913845",
     "key": "INTENT_STORE_GLOOM",
-    "de": "[PNUM] [LINKKEY=PROPERTY_STORED_GLOOM] [JOINER=WORD_ON] [MULTIPLICITY_CARD] speichern"
+    "de": "[PNUM] [LINKKEY=PROPERTY_STORED_GLOOM] [JOINER=WORD_ON] [MULTIPLICITY_CARD] absorbieren"
   },
   {
     "table": "Card",
@@ -13587,7 +13587,7 @@
     "table": "Card",
     "id": "139473130408108100",
     "key": "INTENT_STORED_GLOOM_TO_MAX_HEALTH",
-    "de": "Gespeicherte Finsternis in max. Gesundheit umwandeln"
+    "de": "Absorbierte Finsternis in max. Gesundheit umwandeln"
   },
   {
     "table": "Card",
@@ -14259,7 +14259,7 @@
     "table": "Card",
     "id": "139479792384729129",
     "key": "TOOLTIP_PROPERTY_STORED_GLOOM",
-    "de": "Eingefangene dunkle Energie, die dich stärker macht."
+    "de": "Absorbierte dunkle Energie, die dich stärker macht."
   },
   {
     "table": "Card",
@@ -14271,7 +14271,7 @@
     "table": "Card",
     "id": "139479792384729089",
     "key": "TOOLTIP_PROPERTY_AMPLIFY_GLOOM",
-    "de": "Wenn du Finsternis lagerst, wird sie vervielfacht.\\n\nAber die Welt wird im selben Maße stärker."
+    "de": "Wenn du Finsternis absorbierst, wird sie vervielfacht.\\n\nAber die Welt wird im selben Maße stärker."
   },
   {
     "table": "Card",
@@ -16263,7 +16263,7 @@
     "table": "Card",
     "id": "198618279759044608",
     "key": "FORESIGHT_GOOD_TASTE",
-    "de": "Wenn du einen Gegner mit einer verschmierten Karte tötest,\nmachst du <link=\"mC\">Warme Butter</link>."
+    "de": "Wenn du einen Gegner mit einer verschmierten Karte tötest,\nerschaffst du <link=\"mC\">Warme Butter</link>."
   },
   {
     "table": "Card",
@@ -16533,7 +16533,7 @@
     "table": "Card",
     "id": "205178236895629312",
     "key": "FORESIGHT_AFTER_TASTE",
-    "de": "Wenn du einen Gegner mit einer verschmierten Karte tötest,\nmachst du <link=\"mC\">Soße</link>."
+    "de": "Wenn du einen Gegner mit einer verschmierten Karte tötest,\nerschaffst du <link=\"mC\">Soße</link>."
   },
   {
     "table": "Card",

@@ -18,7 +18,7 @@ if (args.Length > 2 && args[2] is "--inspect" or "--find" or "--text-owners")
         var p = Path.Combine(loader, "BepInEx/interop", new AssemblyName(e.Name).Name + ".dll");
         return File.Exists(p) ? Assembly.LoadFrom(p) : null;
     };
-    foreach (var dll in new[] { "Assembly-CSharp", "Unity.Localization", "Unity.TextMeshPro" })
+    foreach (var dll in new[] { "Assembly-CSharp", "Unity.Localization", "Unity.TextMeshPro", "UnityEngine.TextRenderingModule" })
     {
         var interop = Assembly.LoadFrom(Path.Combine(loader, "BepInEx/interop", dll + ".dll"));
         if (args[2] == "--text-owners") {
@@ -33,7 +33,7 @@ if (args.Length > 2 && args[2] is "--inspect" or "--find" or "--text-owners")
         {
             Console.WriteLine("TYPE " + type.FullName);
             if (args[2] == "--find") continue;
-            foreach (var m in type.GetMembers(BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance | BindingFlags.DeclaredOnly))
+            foreach (var m in type.GetMembers(BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance))
                 if (!m.Name.StartsWith("Native")) Console.WriteLine(m);
         }
     }

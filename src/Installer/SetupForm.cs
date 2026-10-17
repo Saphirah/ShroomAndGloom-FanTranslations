@@ -28,7 +28,7 @@ internal sealed class SetupForm : Form
         AutoScaleDimensions = new SizeF(96, 96);
         AutoScaleMode = AutoScaleMode.Dpi;
         Font = new Font("Segoe UI", 10);
-        Text = "Shroom and Gloom · Deutsch";
+        Text = "Shroom and Gloom · Fan Translations";
         FormBorderStyle = FormBorderStyle.None;
         MaximizeBox = false;
         ClientSize = new Size(720, 390);
@@ -102,7 +102,7 @@ internal sealed class SetupForm : Form
         using var caption = new Font("Segoe UI", 10);
         using var label = new Font("Segoe UI", 8.5f, FontStyle.Bold);
         TextRenderer.DrawText(g, "Shroom and Gloom", title, new Rectangle(S(29), S(58), Width - S(60), S(46)), Ink, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
-        TextRenderer.DrawText(g, "Deutsch · v0.1.4", caption, new Rectangle(S(32), S(109), Width - S(64), S(24)), Muted, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
+        TextRenderer.DrawText(g, "Fan Translations", caption, new Rectangle(S(32), S(109), Width - S(64), S(24)), Muted, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
         TextRenderer.DrawText(g, "SPIELORDNER", label, new Rectangle(S(32), S(155), Width - S(64), S(22)), Muted, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
         TextRenderer.DrawText(g, status, caption, new Rectangle(S(32), S(247), Width - S(64), Math.Max(S(36), install.Top - S(257))),
             error ? Color.FromArgb(244, 167, 148) : Muted, TextFormatFlags.Left | TextFormatFlags.WordBreak);
@@ -169,10 +169,10 @@ internal sealed class SetupForm : Form
                 installedPath = null;
             }
             else {
-                var updates = new Progress<int>(value => { progress = value; Invalidate(); });
-                await Task.Run(() => ModInstaller.Install(path, updates));
+                var updates = new Progress<PackageProgress>(value => { progress = value.Percent; SetStatus(value.Status); });
+                var version = await ModInstaller.InstallAsync(path, updates);
                 installedPath = path;
-                SetStatus("Installiert.");
+                SetStatus($"Version {version} installiert.");
             }
         }
         catch (UnauthorizedAccessException) { SetStatus("Kein Schreibzugriff. Installer als Administrator öffnen.", true); }
