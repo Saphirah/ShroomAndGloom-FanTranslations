@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.TextCore.LowLevel;
-using System.Runtime.InteropServices;
 
 namespace ShroomGerman;
 
@@ -9,42 +8,40 @@ internal static class FontFallbacks
 {
     private static bool ready;
     private static readonly List<TMP_FontAsset> retained = new();
-    [DllImport("gdi32.dll", CharSet = CharSet.Unicode, EntryPoint = "AddFontResourceExW")]
-    private static extern int AddFontResourceEx(string path, uint flags, IntPtr reserved);
+
     internal static void Ensure()
     {
         if (ready || TMP_Settings.instance == null) return;
         ready = true;
-        try
-        {
         var bundled = new Dictionary<string, string> {
             ["Noto Sans"] = "NotoSans-Regular.ttf", ["Noto Sans Thai"] = "NotoSansThai-Regular.ttf",
             ["Noto Sans CJK SC"] = "NotoSansCJKsc-Regular.otf"
         };
-        var registered = new HashSet<string>();
-        foreach (var pair in bundled)
-        {
-            var path = Path.Combine(Plugin.CatalogFolder, "fonts", pair.Value);
-            // Private to this process, with no administrator access or permanent
-            // font installation. Windows releases the resources when the game exits.
-            if (File.Exists(path) && AddFontResourceEx(path, 0x10, IntPtr.Zero) > 0) registered.Add(pair.Key);
-        }
-        var installed = new HashSet<string>(Font.GetOSInstalledFontNames(), StringComparer.OrdinalIgnoreCase);
-        installed.UnionWith(registered);
         var global = TMP_Settings.fallbackFontAssets;
         if (global == null) TMP_Settings.instance.m_fallbackFontAssets = global = new();
-        foreach (var name in new[] { "Noto Sans", "Noto Sans Thai", "Noto Sans CJK SC", "Arial", "Tahoma", "Malgun Gothic", "Microsoft YaHei", "Microsoft JhengHei", "Yu Gothic", "MS Gothic" })
+        System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(Font).TypeHandle);
+        foreach (var pair in bundled)
         {
-            if (!installed.Contains(name)) continue;
-            var font = Font.CreateDynamicFontFromOSFont(name, 48);
-            if (font == null) continue;
-            var asset = TMP_FontAsset.CreateFontAsset(font, 48, 5, GlyphRenderMode.SDFAA, 1024, 1024, AtlasPopulationMode.Dynamic, true);
-            if (asset == null) continue;
-            asset.name = "FanTranslations " + name;
-            global.Add(asset); retained.Add(asset);
+            try
+            {
+                var path = Path.Combine(Plugin.CatalogFolder, "fonts", pair.Value);
+                if (!File.Exists(path)) throw new FileNotFoundException("Bundled font missing", path);
+                // Reproduce Font(path) using its retained native initializer:
+                // managed constructors are stripped in this IL2CPP player.
+                // File-backed data is required by TextCore; Windows system
+                // font handles alone cannot be used as a dynamic TMP source.
+                var font = new Font(Il2CppInterop.Runtime.IL2CPP.il2cpp_object_new(Il2CppInterop.Runtime.Il2CppClassPointerStore<Font>.NativeClassPtr));
+                Font.Internal_CreateFontFromPath(font, path);
+                var asset = TMP_FontAsset.CreateFontAsset(font, 48, 5, GlyphRenderMode.SDFAA, 1024, 1024, AtlasPopulationMode.Dynamic, true);
+                if (asset == null) throw new InvalidOperationException("TextCore could not load the font file.");
+                var probes = pair.Key == "Noto Sans Thai" ? "ก" : pair.Key == "Noto Sans CJK SC" ? "中한" : "Ωїế";
+                foreach (var character in probes)
+                    if (!asset.HasCharacter(character, false, true)) throw new InvalidOperationException("Could not rasterize required glyph U+" + ((int)character).ToString("X4"));
+                asset.name = "FanTranslations " + pair.Key;
+                global.Add(asset); retained.Add(asset);
+            }
+            catch (Exception e) { Plugin.Output.LogWarning("Font fallback " + pair.Key + ": " + e.Message); }
         }
-        Plugin.Output.LogInfo($"Font fallbacks ready: {retained.Count} installed system fonts; existing game fonts remain primary.");
-        }
-        catch (Exception e) { Plugin.Output.LogWarning("Font fallbacks could not initialize; existing game fonts remain active: " + e.Message); }
+        Plugin.Output.LogInfo($"Font fallbacks loaded: {retained.Count}/{bundled.Count}; original game fonts remain primary.");
     }
 }

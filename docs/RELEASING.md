@@ -65,7 +65,7 @@ are refreshed on the game thread. Network failures preserve the installed text.
 
 The language dropdown uses native language names and remembers the selection.
 English is the source fallback. Original game fonts remain primary; bundled Noto
-fonts are registered privately for the game process and used for missing glyphs.
+fonts are loaded from the mod's files for missing glyphs, without a Windows font installation.
 The original plugin GUID and `BepInEx/plugins/ShroomGerman` path are deliberately
 retained so earlier German-only installations can upgrade and uninstall safely.
 

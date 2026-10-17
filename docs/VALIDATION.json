@@ -222,8 +222,13 @@
     "languageArchiveBytes": 3357711
   },
   "updates": "Installer includes every language in the initial full package. Startup checks published metadata and downloads only language files with changed hashes; executable updates require installer.",
-  "runtimeAcceptance": "Game startup, language switching and visual layout acceptance are separate from the automated/offline checks in this report.",
+  "runtimeAcceptance": {
+    "startup": "Locally reached Title scene with 30 packs loaded and all five German tables active after replacing unsafe IL2CPP tuple-cache access with native ResetState.",
+    "fonts": "Original OS-font approach failed in the player. Replaced with bundled file-backed native Font construction and required-glyph rasterization probes; compiles. Latest font fix awaits runtime verification because Steam rejects RequestingLicense with AppError_5 and user cannot currently start the game.",
+    "textAndVisualReview": "Deferred by user; additional languages remain AI-assisted, not native-speaker-certified."
+  },
   "targetRelease": "v0.2.0",
   "installer": "ShroomAndGloom-FanTranslations-Setup-0.2.0.exe",
-  "releaseHashes": "Published SHA256SUMS.txt"
+  "releaseHashes": "See draft/release SHA256SUMS.txt",
+  "publication": "v0.2.0 draft prepared; publish after verifying latest font fix in the player."
 }
