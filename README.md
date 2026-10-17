@@ -9,8 +9,7 @@ Inoffizielle deutsche Übersetzungsmod für **Windows x64 · Steam-Build 2544222
 3. Über **Spiel starten** oder Steam spielen. Deutsch ist automatisch aktiv.
 
 Beim ersten Spielstart benötigt der Modloader eine Internetverbindung zur Einrichtung.
-Deinstallation über denselben Installer. Die Version ist ein MVP; die vollständige
-visuelle Prüfung steht noch aus.
+Deinstallation über denselben Installer.
 
 ## Entwicklung
 
