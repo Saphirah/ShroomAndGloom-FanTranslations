@@ -1,0 +1,25 @@
+{
+  "entries": 2869,
+  "tables": {
+    "Card Names": 961,
+    "UI": 188,
+    "Enemy": 204,
+    "World": 619,
+    "Card": 897
+  },
+  "englishReferenceEntries": 2857,
+  "additionalGermanEntries": 12,
+  "editorialChanges": 515,
+  "sourceSha256": "2826627f1a9d4423e1abf990c4d94e3a128de3c81a2f9ef2d121fcc74e7b700b",
+  "issues": [],
+  "installer": "dist/ShroomAndGloom-Deutsch-Setup.exe",
+  "supportedSteamBuild": "25442225",
+  "installedGamePath": "E:\\SteamLibrary\\steamapps\\common\\Shroom and Gloom",
+  "pluginBuild": "passed",
+  "installerBuild": "passed",
+  "installerSmoke": "passed: 244 files; install, reinstall, uninstall, foreign-loader protection",
+  "installedPayloadVerification": "244/244",
+  "originalGameFilesUnchanged": 12,
+  "gameRuntimeTest": "not performed - user explicitly prohibited starting the game",
+  "sceneTextAudit": "inconclusive: 63974 of 70567 MonoBehaviours lack readable type trees"
+}

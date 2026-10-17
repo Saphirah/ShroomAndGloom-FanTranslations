@@ -1,0 +1,40 @@
+Shroom and Gloom – deutsche Fanübersetzungsmod
+
+Spiel, Originaltexte und vorhandene deutsche Übersetzungen:
+Copyright Team Lazerbeam / Devolver Digital und jeweilige Rechteinhaber.
+Der Katalog enthält redigierte Texte auf Grundlage der rechtmäßig installierten
+Spielversion. Es wird keine Lizenz an fremden Spielinhalten beansprucht.
+Keine Spielbundles, Texturen, Musik oder aus dem Spiel generierte Interop-DLLs
+werden im Installer mitgeliefert.
+
+BepInEx 6.0.0-be.788+5b766a3, LGPL-2.1-or-later:
+https://github.com/BepInEx/BepInEx/tree/5b766a3
+https://builds.bepinex.dev/projects/bepinex_be/788/
+Unverändert mit den im Originalarchiv gebündelten Abhängigkeiten enthalten.
+Die LGPL- und GPL-Lizenztexte liegen unter Lizenzen/ bei. Der Quellcode des
+unveränderten BepInEx ist über den obigen versionsgebundenen Link erhältlich.
+
+Unity Doorstop, LGPL-2.1:
+https://github.com/NeighTools/UnityDoorstop
+Il2CppInterop, LGPL-3.0:
+https://github.com/BepInEx/Il2CppInterop
+HarmonyX: https://github.com/BepInEx/HarmonyX (MIT)
+MonoMod: https://github.com/MonoMod/MonoMod (MIT)
+Cpp2IL: https://github.com/SamboyCoding/Cpp2IL (MIT)
+AsmResolver: https://github.com/Washi1337/AsmResolver (MIT)
+AssetRipper.Primitives: https://github.com/AssetRipper/AssetRipper (MIT)
+Weitere Abhängigkeiten und Hinweise siehe unverändertes BepInEx-Paket und
+dessen Quellrepository. dotnet/ enthält den unveränderten, vom BepInEx-Paket
+bereitgestellten .NET-Runtimebestand einschließlich THIRD-PARTY-NOTICES.TXT.
+
+Beim ersten Spielstart von BepInEx heruntergeladene Unity-Basisbibliotheken
+2022.3.62 für die Interop-Generierung (nicht im Installer enthalten):
+https://unity.bepinex.dev/libraries/2022.3.62.zip
+Unity Technologies; Unity Reference Only License / jeweilige Unity-Lizenzbedingungen:
+https://github.com/Unity-Technologies/UnityCsReference/blob/master/LICENSE.md
+
+Technische Recherche zum Localization-System (kein übernommener Plugin-Code):
+https://github.com/chu123122/Shroom-and-Gloom-
+
+Installer-Runtime: Microsoft .NET 8 / Windows Desktop Runtime (MIT und enthaltene
+Drittlizenzen). https://github.com/dotnet/runtime

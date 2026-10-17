@@ -1,0 +1,36 @@
+SHROOM AND GLOOM – DEUTSCHE ÜBERSETZUNGSMOD 0.1.0
+
+Installation: ShroomAndGloom-Deutsch-Setup.exe öffnen. Der Steam-Spielordner wird
+automatisch gesucht. Bei Bedarf über „Ordner wählen“ den Ordner mit
+„Shroom and Gloom.exe“ auswählen, dann „Installieren“ drücken.
+
+Der Installer startet das Spiel nicht. Bitte nicht bei laufendem Spiel installieren.
+Beim nächsten selbst gestarteten Spiel ist Deutsch aktiv. Die erstmalige Vorbereitung
+des Modloaders kann etwa eine Minute dauern. Dabei lädt BepInEx einmalig passende
+Unity-Basisbibliotheken herunter; für diesen ersten Start wird Internet benötigt.
+
+Unterstützt: Windows x64, Steam-Build 25442225, Unity 2022.3.62f3.
+Enthält 2.857 redaktionell durchgesehene Einträge aus dem englischen Bestand
+und 12 zusätzliche deutsche Einträge bzw. grammatische Formen in fünf Sprachtabellen.
+Originaldateien des Spiels und Spielstände werden nicht überschrieben.
+Nach einem Spielupdate auf einen anderen Code-Build wird diese Mod vorsichtshalber
+nicht aktiviert. Bitte dann eine passende Modversion verwenden.
+
+Sprache: Deutsch wird beim Start automatisch gewählt. Ein Sprachwechsel ist über
+die vorhandenen Spieleinstellungen möglich. Wer die Sprachauswahl auch beim Neustart
+dem Spiel überlassen möchte, setzt in BepInEx/config/de.shroomandgloom.german.cfg
+DeutschBeimStart = false.
+
+Deinstallation: denselben Installer öffnen und „Deinstallieren“ wählen.
+Es werden ausschließlich unveränderte Dateien entfernt, die diese Mod installiert hat.
+Ein von anderen erkannten DLL-Plugins benötigter Loader bleibt erhalten.
+Erzeugte Modloader-Caches, Logdateien und Konfigurationen können bestehen bleiben.
+
+Prüfstand: Tabellen redaktionell geprüft; Textvollständigkeit und Spieltokens geprüft;
+Plugin und Installer kompiliert. Noch kein Laufzeit- oder Sichttest im Spiel, da
+das Spiel auf ausdrücklichen Nutzerwunsch während der Entwicklung nicht gestartet wird.
+Die Mod ist ein MVP; Layout und zusammengesetzte Regeltexte brauchen noch Spieltests.
+
+Inoffizielle Fan-Mod. Shroom and Gloom und die mitgelieferten Ausgangstexte gehören
+Team Lazerbeam / Devolver Digital. Keine Zugehörigkeit zu den Entwicklern.
+Lizenzen und Quellen der beigefügten Werkzeuge: THIRD-PARTY.txt und Lizenzen/.

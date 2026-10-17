@@ -1,0 +1,14 @@
+[
+  {"table":"Card","id":"201848105567510528","key":"MULT_ENEMY_ALL_DAT","de":"allen Gegnern"},
+  {"table":"Card","id":"201848105567510529","key":"MULT_ENEMY_ALLBUTSELF_DAT","de":"allen anderen Gegnern"},
+  {"table":"Card","id":"201848105567510530","key":"MULT_ENEMY_RANDOM_DAT","de":"einem zufälligen Gegner"},
+  {"table":"Card","id":"201848105567510531","key":"MULT_ENEMY_TOTHELEFT_DAT","de":"Gegnern zur LINKEN"},
+  {"table":"Card","id":"201848105567510532","key":"MULT_ENEMY_TOTHERIGHT_DAT","de":"Gegnern zur RECHTEN"},
+  {"table":"Card","id":"201848105567510533","key":"MULT_CARD_ALL_DAT","de":"allen [CLASS_NAME]-Karten"},
+  {"table":"Card","id":"201848105567510534","key":"MULT_CARD_ALLBUTSELF_DAT","de":"allen anderen [CLASS_NAME]-Karten"},
+  {"table":"Card","id":"201848105567510535","key":"MULT_CARD_RANDOM_DAT","de":"einer zufälligen [CLASS_NAME]-Karte"},
+  {"table":"Card","id":"201848105567510536","key":"MULT_CARD_DEFAULT_DAT","de":"einer [CLASS_NAME]-Karte"},
+  {"table":"Card","id":"205224396925952000","key":null,"de":"Die Karte steckt bis zum Tod des Gegners in ihm fest."},
+  {"table":"Card","id":"209784618159955968","key":null,"de":"Erhalte [PNUM] Neuwürfe"},
+  {"table":"Card Names","id":"40975656211701760","key":null,"de":"Verbotenes Wissen"}
+]
