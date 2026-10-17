@@ -2,13 +2,17 @@
 
 Inoffizielle deutsche Übersetzungsmod für **Steam-Build 25442225**, Windows x64,
 Unity **2022.3.62f3 / IL2CPP**. Ziel: ein vollständig übersetztes MVP mit kleinem,
-automatisch erkennendem EXE-Installer. Das Spiel wird von keinem Werkzeug dieses
-Repositories gestartet.
+automatisch erkennendem EXE-Installer. Nach der Installation kann das Spiel über
+einen separaten Klick auf **Spiel starten** über Steam geöffnet werden.
 
 ## Installation
 
 `dist/ShroomAndGloom-Deutsch-Setup.exe` öffnen, erkannten Steam-Spielordner prüfen
-und **Installieren** wählen. Über **Ordner wählen** sind auch andere Bibliotheken
+und **Installieren** wählen. Nach erfolgreicher Installation wird der Button zu
+**Spiel starten**. Erst ein weiterer Klick öffnet das Spiel über Steam; der Installer
+schließt sich, sobald der Spielprozess läuft. Falls Steam den Start nicht freigibt,
+bleibt der Installer offen und ermöglicht einen erneuten Versuch.
+Über **Ordner wählen** sind auch andere Bibliotheken
 möglich. Steam-Pfade werden über Registry, `libraryfolders.vdf`, Appmanifest und
 übliche Ordner auf lokalen Festplatten gesucht.
 

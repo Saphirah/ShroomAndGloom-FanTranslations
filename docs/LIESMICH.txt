@@ -4,7 +4,9 @@ Installation: ShroomAndGloom-Deutsch-Setup.exe öffnen. Der Steam-Spielordner wi
 automatisch gesucht. Bei Bedarf über „Ordner wählen“ den Ordner mit
 „Shroom and Gloom.exe“ auswählen, dann „Installieren“ drücken.
 
-Der Installer startet das Spiel nicht. Bitte nicht bei laufendem Spiel installieren.
+Bitte nicht bei laufendem Spiel installieren. Nach erfolgreicher Installation wird
+aus „Installieren“ der Button „Spiel starten“. Ein weiterer Klick startet das Spiel
+über Steam. Sobald der Spielprozess läuft, schließt sich der Installer.
 Beim nächsten selbst gestarteten Spiel ist Deutsch aktiv. Die erstmalige Vorbereitung
 des Modloaders kann etwa eine Minute dauern. Dabei lädt BepInEx einmalig passende
 Unity-Basisbibliotheken herunter; für diesen ersten Start wird Internet benötigt.

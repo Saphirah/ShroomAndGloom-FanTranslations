@@ -20,5 +20,7 @@
   "packageCatalogVerification": "passed",
   "uiFallbackLabels": 32,
   "gameRuntimeTest": "user will verify; no game interaction performed",
-  "installedPayloadVerification": "0.1.1 not installed: game is running; previous 0.1.0 installation unchanged"
+  "installedPayloadVerification": "0.1.1 not installed: game is running; previous 0.1.0 installation unchanged",
+  "installerSteamLaunch": "Release build passed; install-success action changes to Spiel starten; Steam URI dispatch and process-confirmed auto-close implemented. Game launch not exercised; user performs acceptance.",
+  "installer": "dist/ShroomAndGloom-Deutsch-Setup-Steam.exe"
 }

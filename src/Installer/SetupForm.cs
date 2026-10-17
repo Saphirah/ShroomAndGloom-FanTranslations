@@ -18,6 +18,9 @@ internal sealed class SetupForm : Form
     private string status = "Suche Steam-Installation …";
     private bool error;
     private bool busy;
+    private bool launching;
+    private string? installedPath;
+    private CancellationTokenSource? launchCancellation;
     private int progress;
 
     public SetupForm()
@@ -39,7 +42,10 @@ internal sealed class SetupForm : Form
         minimize.Font = new Font("Segoe UI", 16);
         close.Click += (_, _) => Close();
         minimize.Click += (_, _) => WindowState = FormWindowState.Minimized;
-        install.Click += async (_, _) => await Run(false);
+        install.Click += async (_, _) => {
+            if (ReadyToLaunch) await LaunchGame();
+            else await Run(false);
+        };
         remove.Click += async (_, _) => await Run(true);
         browse.Click += (_, _) => Browse();
         location.Click += (_, _) => {
@@ -59,7 +65,10 @@ internal sealed class SetupForm : Form
                 else SetStatus("Spielordner auswählen.");
             } catch (Exception e) { SetStatus("Suche fehlgeschlagen: " + e.Message, true); }
         };
-        FormClosing += (_, e) => { if (busy) e.Cancel = true; };
+        FormClosing += (_, e) => {
+            if (busy && !launching) e.Cancel = true;
+            else launchCancellation?.Cancel();
+        };
         UpdateButtons();
     }
 
@@ -136,12 +145,15 @@ internal sealed class SetupForm : Form
 
     private void UpdateButtons()
     {
+        install.Text = ReadyToLaunch ? "Spiel starten" : "Installieren";
         install.Enabled = !busy && selectedPath != null;
         browse.Enabled = !busy;
         location.Enabled = !busy && paths.Count > 1;
         remove.Enabled = install.Enabled && File.Exists(Path.Combine(selectedPath!, ModInstaller.RecordName));
-        close.Enabled = !busy;
+        close.Enabled = !busy || launching;
     }
+
+    private bool ReadyToLaunch => selectedPath != null && string.Equals(selectedPath, installedPath, StringComparison.OrdinalIgnoreCase);
 
     private void SetStatus(string text, bool failed = false) { status = text; error = failed; Invalidate(); }
 
@@ -152,16 +164,42 @@ internal sealed class SetupForm : Form
         busy = true; progress = 0; UpdateButtons();
         SetStatus(uninstall ? "Wird entfernt …" : "Wird installiert …");
         try {
-            if (uninstall) SetStatus(await Task.Run(() => ModInstaller.Uninstall(path)));
+            if (uninstall) {
+                SetStatus(await Task.Run(() => ModInstaller.Uninstall(path)));
+                installedPath = null;
+            }
             else {
                 var updates = new Progress<int>(value => { progress = value; Invalidate(); });
                 await Task.Run(() => ModInstaller.Install(path, updates));
-                SetStatus("Installiert. Deutsch ist beim nächsten Spielstart aktiv.");
+                installedPath = path;
+                SetStatus("Installiert.");
             }
         }
         catch (UnauthorizedAccessException) { SetStatus("Kein Schreibzugriff. Installer als Administrator öffnen.", true); }
         catch (Exception e) { SetStatus(e.Message, true); }
         finally { busy = false; UpdateButtons(); Invalidate(); }
+    }
+
+    private async Task LaunchGame()
+    {
+        if (!ReadyToLaunch || busy) return;
+        var path = selectedPath!;
+        busy = launching = true;
+        launchCancellation = new CancellationTokenSource();
+        UpdateButtons(); SetStatus("Spiel wird über Steam gestartet …");
+        try {
+            if (await SteamLauncher.StartAsync(path, launchCancellation.Token)) {
+                busy = launching = false;
+                Close();
+            } else SetStatus("Spiel noch nicht gestartet. Bitte Steam prüfen und erneut versuchen.", true);
+        }
+        catch (OperationCanceledException) { }
+        catch (Exception e) { if (!IsDisposed) SetStatus("Steam-Start fehlgeschlagen: " + e.Message, true); }
+        finally {
+            launchCancellation.Dispose(); launchCancellation = null;
+            busy = launching = false;
+            if (!IsDisposed) { UpdateButtons(); Invalidate(); }
+        }
     }
 
     protected override void Dispose(bool disposing) { if (disposing) hint.Dispose(); base.Dispose(disposing); }
