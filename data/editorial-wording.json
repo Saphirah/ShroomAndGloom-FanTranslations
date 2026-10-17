@@ -1,0 +1,13 @@
+{
+  "2194": "[HEXCODE][CARD_NAME]</color> erschaffen",
+  "2202": "[PNUM][HEXCODE][CARD_NAME]</color> erschaffen",
+  "2204": "[PNUM][HEXCODE][CARD_NAME]</color> mit halbem Schaden erschaffen",
+  "2533": "[HEXCODE][CARD_NAME]</color> mit [PNUM] Schaden erschaffen",
+  "2537": "Im nächsten Kampf [PNUM] [HEXCODE][CARD_NAME]</color> erschaffen",
+  "2538": "Bei der nächsten Erkundung [PNUM] [HEXCODE][CARD_NAME]</color> erschaffen ",
+  "2555": "[MULTIPLICITY_CARD] „[PNUM][HEXCODE][CARD_NAME]</color> erschaffen“ hinzufügen",
+  "2622": "[HEXCODE][CARD_NAME]</color> mit demselben Schaden erschaffen",
+  "2712": "[HEXCODE][CARD_NAME]</color> mit demselben Verfall wie das Ziel erschaffen",
+  "2637": "[PNUM][EXTRA_DAMAGE] [LINKKEY=WORD_DAMAGE][JOINER=WORD_TO][MULTIPLICITY_ENEMY][MULTIPLY_MOD_1][MULTIPLY_MOD_2] verursachen",
+  "2627": "bei"
+}

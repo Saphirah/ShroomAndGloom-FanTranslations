@@ -13167,7 +13167,7 @@
     "table": "Card",
     "id": "139473130403913869",
     "key": "INTENT_MAKE_ROASTIE",
-    "de": "[HEXCODE][CARD_NAME]</color> machen"
+    "de": "[HEXCODE][CARD_NAME]</color> erschaffen"
   },
   {
     "table": "Card",
@@ -13215,7 +13215,7 @@
     "table": "Card",
     "id": "139473130408108035",
     "key": "INTENT_MAKE_CARD",
-    "de": "[PNUM][HEXCODE][CARD_NAME]</color> machen"
+    "de": "[PNUM][HEXCODE][CARD_NAME]</color> erschaffen"
   },
   {
     "table": "Card",
@@ -13227,7 +13227,7 @@
     "table": "Card",
     "id": "139473130408108037",
     "key": "INTENT_MAKE_CARD_HALF_DAMAGE",
-    "de": "[PNUM][HEXCODE][CARD_NAME]</color> mit halbem Schaden machen"
+    "de": "[PNUM][HEXCODE][CARD_NAME]</color> mit halbem Schaden erschaffen"
   },
   {
     "table": "Card",
@@ -15201,7 +15201,7 @@
     "table": "Card",
     "id": "181186409050017792",
     "key": "INTENT_MAKE_CARD_WITH_DAMAGE",
-    "de": "[HEXCODE][CARD_NAME]</color> mit [PNUM] Schaden machen"
+    "de": "[HEXCODE][CARD_NAME]</color> mit [PNUM] Schaden erschaffen"
   },
   {
     "table": "Card",
@@ -15225,13 +15225,13 @@
     "table": "Card",
     "id": "181509629523398656",
     "key": "INTENT_MAKE_CARD_NEXT_COMBAT",
-    "de": "Im nächsten Kampf [PNUM] [HEXCODE][CARD_NAME]</color> machen"
+    "de": "Im nächsten Kampf [PNUM] [HEXCODE][CARD_NAME]</color> erschaffen"
   },
   {
     "table": "Card",
     "id": "181509629556953088",
     "key": "INTENT_MAKE_CARD_NEXT_EXPLORE",
-    "de": "Bei der nächsten Erkundung [PNUM] [HEXCODE][CARD_NAME]</color> machen "
+    "de": "Bei der nächsten Erkundung [PNUM] [HEXCODE][CARD_NAME]</color> erschaffen "
   },
   {
     "table": "Card",
@@ -15333,7 +15333,7 @@
     "table": "Card",
     "id": "185599117266653184",
     "key": "INTENT_ADD_MAKE_CARD",
-    "de": "[MULTIPLICITY_CARD] „[PNUM][HEXCODE][CARD_NAME]</color> machen“ hinzufügen"
+    "de": "[MULTIPLICITY_CARD] „[PNUM][HEXCODE][CARD_NAME]</color> erschaffen“ hinzufügen"
   },
   {
     "table": "Card",
@@ -15735,7 +15735,7 @@
     "table": "Card",
     "id": "192931960954544128",
     "key": "INTENT_MAKE_CARD_FULL_DAMAGE",
-    "de": "[HEXCODE][CARD_NAME]</color> mit demselben Schaden machen"
+    "de": "[HEXCODE][CARD_NAME]</color> mit demselben Schaden erschaffen"
   },
   {
     "table": "Card",
@@ -15765,7 +15765,7 @@
     "table": "Card",
     "id": "193175817799581697",
     "key": "WORD_TO",
-    "de": "auf"
+    "de": "bei"
   },
   {
     "table": "Card",
@@ -15825,7 +15825,7 @@
     "table": "Card",
     "id": "193502607018287104",
     "key": "INTENT_DEAL_DAMAGE_POS",
-    "de": "[PNUM] [EXTRA_DAMAGE] [LINKKEY=WORD_DAMAGE] bei [MULTIPLICITY_ENEMY][MULTIPLY_MOD_1][MULTIPLY_MOD_2] verursachen"
+    "de": "[PNUM][EXTRA_DAMAGE] [LINKKEY=WORD_DAMAGE] [JOINER=WORD_TO] [MULTIPLICITY_ENEMY][MULTIPLY_MOD_1][MULTIPLY_MOD_2] verursachen"
   },
   {
     "table": "Card",
@@ -16275,7 +16275,7 @@
     "table": "Card",
     "id": "199276116876443648",
     "key": "INTENT_MAKE_CARD_WITH_TARGET_DECAY",
-    "de": "[HEXCODE][CARD_NAME]</color> mit demselben Verfall wie das Ziel machen"
+    "de": "[HEXCODE][CARD_NAME]</color> mit demselben Verfall wie das Ziel erschaffen"
   },
   {
     "table": "Card",
