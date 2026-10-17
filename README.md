@@ -119,3 +119,12 @@ gepusht werden.
   erhalten; explizite Wortabstände bei zusammengesetzten Kartenfragmenten.
 - Änderungen kompiliert und Katalog statisch geprüft. Die Spielprüfung übernimmt
   der Nutzer; die laufende Spielinstanz wird nicht verändert.
+
+## Update 0.1.2
+
+TMP Auto Size für die tatsächliche `_typeText`-Beschriftung von normalen und
+Voraussicht-Karten sowie die Pausenmenü-Aktionen. Unterstützt sowohl Canvas-TMP
+als auch 3D-TextMeshPro. Zeilenumbruch ist für diese kurzen Labels deaktiviert;
+Min/Max-Schriftgrößen erlauben Verkleinerung auch bei kleinen Weltkoordinaten.
+Textcontainer bleiben auf ihrer vorhandenen Fläche begrenzt. Spielprüfung durch
+den Nutzer; kein automatischer Spielstart oder Eingriff in die laufende Instanz.

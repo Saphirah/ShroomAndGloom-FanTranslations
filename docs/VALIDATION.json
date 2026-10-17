@@ -14,13 +14,14 @@
   "fragmentSeparators": "explicit around JOINER and target fragments",
   "sourceSha256": "2826627f1a9d4423e1abf990c4d94e3a128de3c81a2f9ef2d121fcc74e7b700b",
   "issues": [],
-  "version": "0.1.1",
+  "version": "0.1.2",
   "pluginBuild": "passed",
   "installerBuild": "passed",
   "packageCatalogVerification": "passed",
   "uiFallbackLabels": 32,
   "gameRuntimeTest": "user will verify; no game interaction performed",
-  "installedPayloadVerification": "0.1.1 not installed: game is running; previous 0.1.0 installation unchanged",
+  "installedPayloadVerification": "0.1.2 prepared, not installed over the running game",
   "installerSteamLaunch": "Release build passed; install-success action changes to Spiel starten; Steam URI dispatch and process-confirmed auto-close implemented. Game launch not exercised; user performs acceptance.",
-  "installer": "dist/ShroomAndGloom-Deutsch-Setup-Steam.exe"
+  "installer": "dist/ShroomAndGloom-Deutsch-Setup-0.1.2.exe",
+  "textAutoSize": "Canvas and 3D TMP paths compiled against the installed game interfaces. Card class _typeText and pause actions: auto-size enabled, no wrapping, relative minimum 25%, fixed container. User performs game acceptance."
 }

@@ -12,7 +12,7 @@ Logger.Listeners.Add(new StdoutListener());
 typeof(UnityInfo).GetMethod("Initialize", BindingFlags.NonPublic | BindingFlags.Static)!
     .Invoke(null, new object[] { Path.Combine(game, "UnityPlayer.dll"), Paths.GameDataPath });
 Console.WriteLine($"Offline interop generation for Unity {UnityInfo.Version}");
-if (args.Length > 2 && args[2] is "--inspect" or "--find")
+if (args.Length > 2 && args[2] is "--inspect" or "--find" or "--text-owners")
 {
     AppDomain.CurrentDomain.AssemblyResolve += (_, e) => {
         var p = Path.Combine(loader, "BepInEx/interop", new AssemblyName(e.Name).Name + ".dll");
@@ -21,6 +21,14 @@ if (args.Length > 2 && args[2] is "--inspect" or "--find")
     foreach (var dll in new[] { "Assembly-CSharp", "Unity.Localization", "Unity.TextMeshPro" })
     {
         var interop = Assembly.LoadFrom(Path.Combine(loader, "BepInEx/interop", dll + ".dll"));
+        if (args[2] == "--text-owners") {
+            if (dll != "Assembly-CSharp") continue;
+            foreach (var type in interop.GetTypes())
+                foreach (var property in type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly))
+                    if (property.PropertyType.FullName?.StartsWith("TMPro.") == true)
+                        Console.WriteLine(type.FullName + " :: " + property.Name + " :: " + property.PropertyType.Name);
+            continue;
+        }
         foreach (var type in interop.GetTypes().Where(t => args.Skip(3).Any(n => args[2] == "--find" ? t.FullName!.Contains(n, StringComparison.OrdinalIgnoreCase) : t.FullName == n)))
         {
             Console.WriteLine("TYPE " + type.FullName);

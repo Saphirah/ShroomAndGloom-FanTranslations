@@ -13,7 +13,7 @@ using GameLocale = UnityEngine.Localization.Locale;
 
 namespace ShroomGerman;
 
-[BepInPlugin("de.shroomandgloom.german", "Shroom and Gloom – Deutsch", "0.1.1")]
+[BepInPlugin("de.shroomandgloom.german", "Shroom and Gloom – Deutsch", "0.1.2")]
 public sealed class Plugin : BasePlugin
 {
     internal static ManualLogSource Output = null!;
