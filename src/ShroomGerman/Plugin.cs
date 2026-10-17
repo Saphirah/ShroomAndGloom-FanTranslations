@@ -13,7 +13,7 @@ using GameLocale = UnityEngine.Localization.Locale;
 
 namespace ShroomGerman;
 
-[BepInPlugin("de.shroomandgloom.german", "Shroom and Gloom – Deutsch", "0.1.2")]
+[BepInPlugin("de.shroomandgloom.german", "Shroom and Gloom – Deutsch", "0.1.3")]
 public sealed class Plugin : BasePlugin
 {
     internal static ManualLogSource Output = null!;
@@ -118,7 +118,15 @@ public sealed class TranslationPump : MonoBehaviour
     private bool refreshed;
     private bool wasGerman;
     private float nextCheck;
+    private float nextLayoutCheck;
     private readonly Dictionary<string, StringTable> patched = new();
+
+    public void LateUpdate()
+    {
+        if (Time.unscaledTime < nextLayoutCheck) return;
+        nextLayoutCheck = Time.unscaledTime + 0.25f;
+        TextPresentation.Refresh();
+    }
 
     public void Update()
     {

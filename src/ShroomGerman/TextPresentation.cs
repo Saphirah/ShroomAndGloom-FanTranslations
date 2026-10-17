@@ -10,13 +10,26 @@ namespace ShroomGerman;
 internal static class TextPresentation
 {
     private static Dictionary<string, string> literals = new(StringComparer.OrdinalIgnoreCase);
-    private static readonly HashSet<string> pauseLabels = new(StringComparer.OrdinalIgnoreCase) {
-        "FORTSETZEN", "PAUSE BEENDEN", "EINSTELLUNGEN", "MITWIRKENDE", "HAUPTMENÜ", "BEENDEN"
+    private static readonly HashSet<string> menuLabels = new(StringComparer.OrdinalIgnoreCase) {
+        "FORTSETZEN", "PAUSE BEENDEN", "EINSTELLUNGEN", "MITWIRKENDE", "HAUPTMENÜ", "BEENDEN",
+        "NEUE PARTIE", "SPIELEN", "STARTEN", "NEU STARTEN", "ZURÜCK"
     };
     private static readonly Dictionary<IntPtr, OriginalLayout> layouts = new();
     private static HashSet<string> cardClasses = new(StringComparer.OrdinalIgnoreCase);
     private static bool reported;
-    private sealed record OriginalLayout(float Size, float Min, float Max, bool Auto, bool Wrap, TextOverflowModes Overflow, bool Container);
+    private sealed record OriginalLayout(float Size, float Min, float Max, bool Auto, bool Wrap, TextOverflowModes Overflow, bool Container, Vector4 Margin);
+
+    // Native IL2CPP callbacks can bypass patched lifecycle methods. Discover active
+    // labels independently, including labels enabled before the locale was ready.
+    internal static void Refresh()
+    {
+        foreach (var text in UnityEngine.Object.FindObjectsOfType<TMP_Text>())
+        {
+            Apply(text);
+            if (layouts.ContainsKey(text.Pointer) && text.havePropertiesChanged)
+                text.ForceMeshUpdate();
+        }
+    }
 
     internal static void Load(string folder)
     {
@@ -51,6 +64,7 @@ internal static class TextPresentation
             var value = text.text;
             if (german)
             {
+                if (string.IsNullOrEmpty(value)) return;
                 var translated = Translate(value);
                 if (translated != value) text.text = translated;
                 var label = Regex.Replace(translated, "<[^>]+>", "").Trim();
@@ -60,20 +74,17 @@ internal static class TextPresentation
                     var foresight = text.GetComponentInParent<V_ForesightCardInstance>();
                     isClass = gameplay?._typeText?.Pointer == text.Pointer || foresight?._typeText?.Pointer == text.Pointer;
                 }
-                var inMenu = false;
-                if (pauseLabels.Contains(label)) {
-                    inMenu = text.GetComponentInParent<UnityEngine.UI.Button>() != null
-                        || text.GetComponentInParent<ButtonClick>() != null || text.GetComponentInParent<GooButton>() != null
-                        || text.GetComponentInParent<MathBad.ButtonUI>() != null;
-                    for (var node = text.transform; node != null && !inMenu; node = node.parent)
-                        inMenu = node.name.Contains("pause", StringComparison.OrdinalIgnoreCase);
-                }
-                if (!inMenu && !isClass) return;
+                // Some menu labels are siblings of the clickable graphic, rather
+                // than children of a Button. Match these exact short labels directly.
+                var inMenu = menuLabels.Contains(label);
+                var deck = text.GetComponentInParent<DeckDisplay>();
+                var isDeckTitle = deck?._titleText?.Pointer == text.Pointer;
+                if (!inMenu && !isClass && !isDeckTitle) return;
                 var nominal = text.enableAutoSizing && text.fontSizeMax > 0 ? text.fontSizeMax : text.fontSize;
                 if (nominal <= 0) return;
                 if (!layouts.ContainsKey(text.Pointer))
                     layouts[text.Pointer] = new(text.fontSize, text.fontSizeMin, text.fontSizeMax, text.enableAutoSizing,
-                        text.enableWordWrapping, text.overflowMode, GetAutoContainer(text));
+                        text.enableWordWrapping, text.overflowMode, GetAutoContainer(text), text.margin);
                 var original = layouts[text.Pointer];
                 var maximum = original.Auto && original.Max > 0 ? original.Max : original.Size;
                 // World-space TMP labels can use sizes below 8. An absolute floor
@@ -85,6 +96,8 @@ internal static class TextPresentation
                 if (!text.enableAutoSizing) text.enableAutoSizing = true;
                 if (text.overflowMode != TextOverflowModes.Overflow) text.overflowMode = TextOverflowModes.Overflow;
                 if (GetAutoContainer(text)) SetAutoContainer(text, false);
+                var margin = FitMargins(text, original.Margin, inMenu);
+                if (text.margin != margin) text.margin = margin;
             }
             else if (layouts.Remove(text.Pointer, out var original))
             {
@@ -92,6 +105,7 @@ internal static class TextPresentation
                 text.fontSizeMin = original.Min; text.fontSizeMax = original.Max;
                 text.enableWordWrapping = original.Wrap; text.overflowMode = original.Overflow;
                 SetAutoContainer(text, original.Container);
+                text.margin = original.Margin;
             }
         }
         catch (Exception e)
@@ -101,6 +115,42 @@ internal static class TextPresentation
     }
 
     internal static void Forget(TMP_Text text) => layouts.Remove(text.Pointer);
+
+    private static Vector4 FitMargins(TMP_Text text, Vector4 original, bool menu)
+    {
+        var rect = text.rectTransform;
+        var bounds = rect.rect;
+        if (bounds.width <= 0) return original;
+        var left = bounds.xMin;
+        var right = bounds.xMax;
+        if (menu)
+        {
+            // Account for a text rect wider than its button/mask: TMP otherwise
+            // considers the text to fit while the parent clips both ends.
+            for (var node = text.transform.parent; node != null; node = node.parent)
+            {
+                if (node.GetComponent<UnityEngine.UI.Button>() == null
+                    && node.GetComponent<UnityEngine.UI.Mask>() == null
+                    && node.GetComponent<UnityEngine.UI.RectMask2D>() == null) continue;
+                var area = node.TryCast<RectTransform>();
+                if (area == null || area.rect.width <= 0) continue;
+                var box = area.rect;
+                var min = float.PositiveInfinity;
+                var max = float.NegativeInfinity;
+                foreach (var point in new[] { new Vector3(box.xMin, box.yMin), new Vector3(box.xMin, box.yMax),
+                    new Vector3(box.xMax, box.yMin), new Vector3(box.xMax, box.yMax) })
+                {
+                    var x = rect.InverseTransformPoint(area.TransformPoint(point)).x;
+                    min = Mathf.Min(min, x); max = Mathf.Max(max, x);
+                }
+                left = Mathf.Max(left, min); right = Mathf.Min(right, max);
+            }
+        }
+        if (right <= left) return original;
+        var padding = (right - left) * 0.05f;
+        return new Vector4(Mathf.Max(original.x, left - bounds.xMin + padding), original.y,
+            Mathf.Max(original.z, bounds.xMax - right + padding), original.w);
+    }
 
     private static bool GetAutoContainer(TMP_Text text) => text.TryCast<TextMeshProUGUI>()?.autoSizeTextContainer
         ?? text.TryCast<TextMeshPro>()?.autoSizeTextContainer ?? false;

@@ -8,7 +8,7 @@ namespace ShroomGerman.Setup;
 
 internal sealed class InstallRecord
 {
-    public string Version { get; set; } = "0.1.2";
+    public string Version { get; set; } = "0.1.3";
     public Dictionary<string, string> Files { get; set; } = new(StringComparer.OrdinalIgnoreCase);
 }
 
@@ -69,7 +69,7 @@ internal static class ModInstaller
     {
         root = Path.GetFullPath(root); CheckGame(root);
         if (!Hash(Path.Combine(root, "GameAssembly.dll")).Equals(Info.GameAssemblySha256, StringComparison.OrdinalIgnoreCase))
-            throw new IOException("Diese Spielversion wird von Mod 0.1.2 noch nicht unterstützt. Unterstützt wird Steam-Build 25442225.");
+            throw new IOException("Diese Spielversion wird von Mod 0.1.3 noch nicht unterstützt. Unterstützt wird Steam-Build 25442225.");
         var record = ReadRecord(root);
         using var zip = new ZipArchive(Resource("payload.zip"));
         var entries = zip.Entries.Where(e => !string.IsNullOrEmpty(e.Name)).ToList();
@@ -108,7 +108,7 @@ internal static class ModInstaller
                 // Identical pre-existing third-party loader files are used, not claimed as ours.
                 progress?.Report(++done * 100 / entries.Count);
             }
-            record.Version = "0.1.2";
+            record.Version = "0.1.3";
             File.WriteAllText(Path.Combine(root, RecordName), JsonSerializer.Serialize(record, new JsonSerializerOptions { WriteIndented = true }));
         }
         catch
