@@ -21,5 +21,6 @@
   "installedPayloadVerification": "244/244",
   "originalGameFilesUnchanged": 12,
   "gameRuntimeTest": "not performed - user explicitly prohibited starting the game",
-  "sceneTextAudit": "inconclusive: 63974 of 70567 MonoBehaviours lack readable type trees"
+  "sceneTextAudit": "inconclusive: 63974 of 70567 MonoBehaviours lack readable type trees",
+  "installerUI": "Borderless rounded window and controls visually verified at current Windows DPI; footer buttons fully visible; redundant text removed."
 }
