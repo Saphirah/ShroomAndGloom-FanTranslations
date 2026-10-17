@@ -4,7 +4,7 @@ Inoffizielle deutsche Übersetzungsmod für **Windows x64 · Steam-Build 2544222
 
 ## Installation
 
-1. [Neuesten Installer herunterladen](https://github.com/Saphirah/ShroomAndGloomGermanTranslation/releases/latest).
+1. [Neuesten Installer herunterladen](https://github.com/Saphirah/ShroomAndGloom-German/releases/latest).
 2. Spiel schließen, Installer öffnen und **Installieren** wählen.
 3. Über **Spiel starten** oder Steam spielen. Deutsch ist automatisch aktiv.
 
