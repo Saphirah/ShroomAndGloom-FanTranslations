@@ -16,6 +16,7 @@ internal static class TextPresentation
     };
     private static readonly Dictionary<IntPtr, OriginalLayout> layouts = new();
     private static HashSet<string> cardClasses = new(StringComparer.OrdinalIgnoreCase);
+    private static HashSet<string> statLabels = new(StringComparer.OrdinalIgnoreCase);
     private static bool reported;
     private sealed record OriginalLayout(float Size, float Min, float Max, bool Auto, bool Wrap, TextOverflowModes Overflow, bool Container, Vector4 Margin);
 
@@ -46,6 +47,8 @@ internal static class TextPresentation
         foreach (var key in new[] { "CONTINUE", "SETTINGS", "CREDITS", "MAIN MENU", "QUIT", "PLAY", "START", "RESTART", "BACK" })
             if (data.TryGetValue(key, out var value)) menuLabels.Add(value.Trim());
         cardClasses = new(Plugin.Tables["Card"].Where(row => row.Key?.StartsWith("CLASS_", StringComparison.Ordinal) == true)
+            .Select(row => row.Text.Trim()), StringComparer.OrdinalIgnoreCase);
+        statLabels = new(Plugin.Tables["UI"].Where(row => row.Key?.StartsWith("ROUND_UP_STAT_", StringComparison.Ordinal) == true)
             .Select(row => row.Text.Trim()), StringComparer.OrdinalIgnoreCase);
     }
 
@@ -89,7 +92,9 @@ internal static class TextPresentation
                 var inMenu = menuLabels.Contains(label);
                 var deck = text.GetComponentInParent<DeckDisplay>();
                 var isDeckTitle = deck?._titleText?.Pointer == text.Pointer;
-                if (!inMenu && !isClass && !isDeckTitle) return;
+                var stat = statLabels.Contains(label) ? text.GetComponentInParent<LabelValueStatEntryUI>() : null;
+                if (stat?.LabelText?.Pointer != text.Pointer) stat = null;
+                if (!inMenu && !isClass && !isDeckTitle && stat == null) return;
                 var nominal = text.enableAutoSizing && text.fontSizeMax > 0 ? text.fontSizeMax : text.fontSize;
                 if (nominal <= 0) return;
                 if (!layouts.ContainsKey(text.Pointer))
@@ -106,7 +111,7 @@ internal static class TextPresentation
                 if (!text.enableAutoSizing) text.enableAutoSizing = true;
                 if (text.overflowMode != TextOverflowModes.Overflow) text.overflowMode = TextOverflowModes.Overflow;
                 if (GetAutoContainer(text)) SetAutoContainer(text, false);
-                var margin = FitMargins(text, original.Margin, inMenu);
+                var margin = stat != null ? FitStatMargins(text, original.Margin, stat) : FitMargins(text, original.Margin, inMenu);
                 if (text.margin != margin) text.margin = margin;
             }
             else if (layouts.Remove(text.Pointer, out var original))
@@ -125,6 +130,69 @@ internal static class TextPresentation
     }
 
     internal static void Forget(TMP_Text text) => layouts.Remove(text.Pointer);
+
+    internal static void FitStat(LabelValueStatEntryUI stat)
+    {
+        if (stat != null && stat.LabelText != null) Apply(stat.LabelText);
+    }
+
+    private static Vector4 FitStatMargins(TMP_Text label, Vector4 original, LabelValueStatEntryUI stat)
+    {
+        var row = stat.transform.TryCast<RectTransform>();
+        var value = stat.ValueText;
+        if (row == null || row.rect.width <= 0 || value == null) return original;
+        var area = row.rect;
+        var parent = row.parent?.TryCast<RectTransform>();
+        if (parent != null && parent.rect.width > 0)
+        {
+            // An auto-sized row can itself exceed its layout column. Respect
+            // the immediate grid cell (or enclosing column) as the outer limit.
+            var grid = parent.GetComponent<UnityEngine.UI.GridLayoutGroup>();
+            var parentWidth = grid != null && grid.cellSize.x > 0 ? grid.cellSize.x : parent.rect.width;
+            var parentOrigin = row.InverseTransformPoint(parent.TransformPoint(Vector3.zero));
+            var parentEnd = row.InverseTransformPoint(parent.TransformPoint(new Vector3(parentWidth, 0)));
+            var widthInRow = Mathf.Abs(parentEnd.x - parentOrigin.x);
+            if (widthInRow > 0) area.xMax = area.xMin + Mathf.Min(area.width, widthInRow);
+        }
+        var gap = area.width * .025f;
+        var valueRect = value.rectTransform;
+        var origin = row.InverseTransformPoint(valueRect.TransformPoint(Vector3.zero));
+        var unit = row.InverseTransformPoint(valueRect.TransformPoint(Vector3.right));
+        var scale = Mathf.Abs(unit.x - origin.x);
+        if (scale <= .0001f) return original;
+        // Measure at the original maximum, so changing digit counts does not
+        // repeatedly shrink the reserved width after TMP has auto-sized a value.
+        if (!layouts.ContainsKey(value.Pointer))
+            layouts[value.Pointer] = new(value.fontSize, value.fontSizeMin, value.fontSizeMax, value.enableAutoSizing,
+                value.enableWordWrapping, value.overflowMode, GetAutoContainer(value), value.margin);
+        var initial = layouts[value.Pointer];
+        var maximum = initial.Auto && initial.Max > 0 ? initial.Max : initial.Size;
+        value.fontSizeMax = maximum;
+        value.fontSizeMin = Mathf.Max(.01f, maximum * .25f);
+        value.enableAutoSizing = true;
+        value.enableWordWrapping = false;
+        SetAutoContainer(value, false);
+        var width = Mathf.Clamp(value.GetPreferredValues(value.text).x * scale + gap, area.width * .12f, area.width * .35f);
+        valueRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width / scale);
+        var position = row.InverseTransformPoint(valueRect.position);
+        position.x = area.xMax - gap - width * (1f - valueRect.pivot.x);
+        valueRect.position = row.TransformPoint(position);
+        // Label and value are separate TMP objects. Constrain the label to the
+        // remaining cell width, even if its serialized rect spans both columns.
+        var rect = label.rectTransform;
+        var bounds = rect.rect;
+        var left = float.PositiveInfinity;
+        var right = float.NegativeInfinity;
+        foreach (var point in new[] { new Vector3(area.xMin + gap, area.yMin), new Vector3(area.xMin + gap, area.yMax),
+            new Vector3(area.xMax - width - gap * 2, area.yMin), new Vector3(area.xMax - width - gap * 2, area.yMax) })
+        {
+            var x = rect.InverseTransformPoint(row.TransformPoint(point)).x;
+            left = Mathf.Min(left, x); right = Mathf.Max(right, x);
+        }
+        if (right <= left) return original;
+        return new Vector4(Mathf.Max(original.x, left - bounds.xMin), original.y,
+            Mathf.Max(original.z, bounds.xMax - right), original.w);
+    }
 
     private static Vector4 FitMargins(TMP_Text text, Vector4 original, bool menu)
     {
@@ -174,6 +242,12 @@ internal static class TextPresentation
             if (world != null) world.autoSizeTextContainer = value;
         }
     }
+}
+
+[HarmonyPatch(typeof(LabelValueStatEntryUI), nameof(LabelValueStatEntryUI.AdjustSpacing))]
+internal static class FittedStatRows
+{
+    static void Postfix(LabelValueStatEntryUI __instance) => TextPresentation.FitStat(__instance);
 }
 
 [HarmonyPatch(typeof(LocalizedFallbackText), nameof(LocalizedFallbackText.GetText))]
