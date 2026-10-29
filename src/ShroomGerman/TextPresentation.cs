@@ -22,6 +22,8 @@ internal static class TextPresentation
 
     // Native IL2CPP callbacks can bypass patched lifecycle methods. Discover active
     // labels independently, including labels enabled before the locale was ready.
+    // Keep run-stat fitting on this main-thread/render path. A native AdjustSpacing
+    // detour received invalid instances during asset loading and crashed CoreCLR.
     internal static void Refresh()
     {
         foreach (var text in UnityEngine.Object.FindObjectsOfType<TMP_Text>())
@@ -131,11 +133,6 @@ internal static class TextPresentation
 
     internal static void Forget(TMP_Text text) => layouts.Remove(text.Pointer);
 
-    internal static void FitStat(LabelValueStatEntryUI stat)
-    {
-        if (stat != null && stat.LabelText != null) Apply(stat.LabelText);
-    }
-
     private static Vector4 FitStatMargins(TMP_Text label, Vector4 original, LabelValueStatEntryUI stat)
     {
         var row = stat.transform.TryCast<RectTransform>();
@@ -242,12 +239,6 @@ internal static class TextPresentation
             if (world != null) world.autoSizeTextContainer = value;
         }
     }
-}
-
-[HarmonyPatch(typeof(LabelValueStatEntryUI), nameof(LabelValueStatEntryUI.AdjustSpacing))]
-internal static class FittedStatRows
-{
-    static void Postfix(LabelValueStatEntryUI __instance) => TextPresentation.FitStat(__instance);
 }
 
 [HarmonyPatch(typeof(LocalizedFallbackText), nameof(LocalizedFallbackText.GetText))]

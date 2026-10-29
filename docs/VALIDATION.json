@@ -226,7 +226,8 @@
     "startup": "Locally reached Title scene with 30 packs loaded and all five German tables active after replacing unsafe IL2CPP tuple-cache access with native ResetState.",
     "fonts": "Verified in the existing player log on 2026-10-19: Font fallbacks loaded: 3/3; original game fonts remain primary. All three file-backed assets passed their required-glyph rasterization probes.",
     "textAndVisualReview": "Deferred by user; additional languages remain AI-assisted, not native-speaker-certified.",
-    "statLayout": "Run-summary label/value entries now reserve value width within their grid cell/column and auto-size the remaining label. Plugin compiles; visual acceptance of the new layout remains with the user."
+    "statLayout": "Run-summary label/value entries reserve value width within their grid cell/column and auto-size the remaining label through the main-thread/render refresh. No native AdjustSpacing detour; visual acceptance of the statistics layout remains with the user.",
+    "startupCrashFix": "2026-10-29: reproduced coreclr access violation 0xc0000005 with the installed 10a677e build. Crashdump contains the native AdjustSpacing callback entering TextPresentation.FitStat and LabelValueStatEntryUI.LabelText during asset loading. Removed that detour while preserving periodic/pre-render statistics fitting. The fixed candidate reached TitleScreen with 30 packs, three font fallbacks and five German tables, then exited normally with code 0 after 48 seconds."
   },
   "targetRelease": "v0.2.0",
   "installer": "ShroomAndGloom-FanTranslations-Setup-0.2.0.exe",
